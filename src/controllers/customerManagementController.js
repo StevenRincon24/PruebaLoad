@@ -58,7 +58,7 @@ const deleteCustomer = (username) => {
     })
 }
 
-const updateCustomer = (name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password) =>{
+const updateCustomer = (name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol) =>{
   const newUserData = {
     password,
     rol,

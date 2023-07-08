@@ -31,10 +31,10 @@ const deleteCustomer = (req, res) => {
 }
 
 const updateCustomer = (req, res) => {
-    const { name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password } = req.body;
+    const { name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol} = req.body;
   
     customerManagementController
-      .updateCustomer(name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password)
+      .updateCustomer(name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol)
       .then(() => {
         res.redirect("/dashboard/customersManagement");
       })
