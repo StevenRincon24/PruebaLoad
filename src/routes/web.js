@@ -47,9 +47,8 @@ router.get("/dashBoard/employeesManagement", (req, res) => {
 });
 
 router.get("/dashBoard/customersManagement", (req, res) => {
-  req.session = req.session || {};
-  const rol = req.session.data;
-  const username = req.session.username;
+  const rol = req.session.data
+  const username = req.session.username
   const customersData = serviceCustomerManagement.getCustomerData();
   if (rol) {
     res.render("./employee/customerManagement", {
@@ -63,10 +62,8 @@ router.get("/dashBoard/customersManagement", (req, res) => {
 })
 
 router.get("/dashboard/registerCustomer", (req, res) => {
-  req.session = req.session || {};
   const rol = req.session.data;
   const username = req.session.username;
-
   if (rol) {
     res.render("./employee/registerCustomerManagement", {
       data: rol,
@@ -78,6 +75,7 @@ router.get("/dashboard/registerCustomer", (req, res) => {
 })
 
 router.post("/dashboard/registerCustomer/register", serviceCustomerManagement.registerCustomer)
+router.delete("/dashboard/customersManagement/delete/:username", serviceCustomerManagement.deleteCustomer)
 
 router.get("/dashBoard/bookManagement", (req, res) => {
   req.session = req.session || {};

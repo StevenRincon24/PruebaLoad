@@ -6,7 +6,10 @@ const filePath = path.join(__dirname, "../data/users.json");
 const getCustomerData = () =>{
     const customers = Object.keys(data.usuarios)
         .filter((usuario) => data.usuarios[usuario].rol === "customer")
-        .map((usuario) => data.usuarios[usuario]);
+        .map((username) => ({
+            username,
+            ...data.usuarios[username],
+          }))
     return customers
 }
 
@@ -37,7 +40,27 @@ const registerCustomer = (name, lastName, documentType, documentNumber, birthday
     })
 }
 
+const deleteCustomer = (username) => {
+    return new Promise((resolve, reject) => {
+      if (data.usuarios.hasOwnProperty(username)) {
+        delete data.usuarios[username];
+        const newContent = JSON.stringify(data, null, 2)
+        fs.writeFile(filePath, newContent, (err) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
+          }
+        })
+      } else {
+        reject(new Error('El usuario no existe'));
+      }
+    })
+}
+
+
 module.exports ={
     getCustomerData,
-    registerCustomer
+    registerCustomer,
+    deleteCustomer
 }

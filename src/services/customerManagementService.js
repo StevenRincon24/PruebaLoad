@@ -16,8 +16,22 @@ const registerCustomer = (req, res) =>{
             res.redirect("/dashboard/registerCustomer");
         });
 }
+const deleteCustomer = (req, res) => {
+    const username = req.params.username
+    
+    customerManagementController
+    .deleteCustomer(username)
+    .then(() => {
+      res.status(200).json({ message: "Register deleted successfully" })
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Error deleting the register" })
+    })
+}
 
 module.exports = {
     getCustomerData,
-    registerCustomer
+    registerCustomer,
+    deleteCustomer
 }

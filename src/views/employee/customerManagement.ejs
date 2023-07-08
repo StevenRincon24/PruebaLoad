@@ -152,7 +152,7 @@
                                                     <%= customer.birthday %>
                                                 </td>
                                                 <td>
-                                                    <!-- Acciones -->
+                                                    <button class="btn btn-danger" onclick="deleteUser('<%= customer.username %>')">Delete</button>
                                                 </td>
                                             </tr>
                                             <% }) %>
@@ -200,6 +200,45 @@
                 </footer>
             </div>
         </div>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            function deleteUser(username) {
+                swal({
+                    title: "Are you sure?",
+                    text: "This action will delete this register. Do you want to continue?",
+                    icon: "warning",
+                    buttons: ["Abort", "Confirm"],
+                    dangerMode: true,
+                })
+                .then((confirmed) => {
+                    if (confirmed) {
+                        console.log(username)
+                        fetch(`/dashboard/customersManagement/delete/${username}`, {
+                            method: 'DELETE'
+                        }).then(response => {
+                            if (response.ok) {
+                            swal("The register was deleted successfully!", {
+                                icon: "success",
+                            })
+                            .then(() => {
+                                window.location.href = "/dashboard/customersManagement"
+                            });
+                            } else {
+                            swal("Error deleting the register.", {
+                                icon: "error",
+                            }).catch(error => {
+                                console.error('Error deleting the register:', error);
+                                swal("Error deleting the register.", {
+                                icon: "error",
+                                });
+                            })
+
+                            }
+                        })
+                    }
+                })
+            }
+        </script>
 </body>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
