@@ -7,6 +7,17 @@
     "ivan@gmail.com": {
       "password": "321321321",
       "rol": "employee"
+    },
+    "asdas@gmail.com": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "Andrés Ivan",
+      "lastName": "Sierra Espinel",
+      "documentType": "Citizenship card",
+      "documentNumber": "1007751448",
+      "cellphone": "32132132",
+      "address": "asdas",
+      "birthday": "2001-08-17"
     }
   }
 }
