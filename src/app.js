@@ -21,5 +21,6 @@ app.listen(app.get("PORT"), () => {
   console.log(`Server deployed on port ${app.get("PORT")}`)
 });
 
-app.use("/", require("./routes/web"))
+const webRoutes = require(".//routes/web");
+app.use("/", webRoutes);
 
