@@ -1,7 +1,10 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const methodOverride = require('method-override');
+
 const session = require('express-session')
+app.use(methodOverride('_method'));
 app.use(
   session({
     secret: 'mySecretKey',
@@ -9,7 +12,6 @@ app.use(
     saveUninitialized: false
   })
 )
-
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));

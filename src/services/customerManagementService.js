@@ -30,8 +30,23 @@ const deleteCustomer = (req, res) => {
     })
 }
 
+const updateCustomer = (req, res) => {
+    const { name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password } = req.body;
+  
+    customerManagementController
+      .updateCustomer(name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password)
+      .then(() => {
+        res.redirect("/dashboard/customersManagement");
+      })
+      .catch((err) => {
+        console.error(err);
+        res.redirect("/dashboard/customersManagement");
+      });
+  };
+
 module.exports = {
     getCustomerData,
     registerCustomer,
-    deleteCustomer
+    deleteCustomer,
+    updateCustomer
 }

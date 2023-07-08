@@ -153,11 +153,111 @@
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-danger" onclick="deleteUser('<%= customer.username %>')">Delete</button>
+                                                    <button class="btn btn-primary" onclick="editUser('<%- encodeURIComponent(JSON.stringify(customer)) %>')" data-toggle="modal" data-target="#editModal">Edit</button>
                                                 </td>
                                             </tr>
                                             <% }) %>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Edit customer</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="post" action="/dashboard/customersManagement/edit">
+                                                <input type="hidden" name="_method" value="PATCH">
+                                                <div class="row">
+                                                    <div class="col-md-6 pr-1">
+                                                        <div class="form-group">
+                                                            <label>First Name</label>
+                                                            <input type="text" class="form-control" placeholder="First Name"
+                                                                name="name" id="name1" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 pl-1">
+                                                        <div class="form-group">
+                                                            <label>Last Name</label>
+                                                            <input type="text" class="form-control" placeholder="Last Name"
+                                                                name="lastName" id="lastName1" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 pr-1">
+                                                        <div class="form-group">
+                                                            <label for="documentType">Document Type</label>
+                                                            <select class="form-select form-control" id="documentType1" name="documentType" required="required">
+                                                                <option value="Citizenship card">Citizenship card</option>
+                                                                <option value="Foreigner ID">Foreigner ID</option>
+                                                                <option value="NIT">NIT</option>
+                                                            </select>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-md-6 pl-1">
+                                                        <div class="form-group">
+                                                            <label for="documentNumber">Document Number</label>
+                                                            <input id = "documentNumber1" type="number" class="form-control" name="documentNumber" required>
+                                                        </div> 
+                                                    </div>
+                                                </div>                               
+                                                <div class="row">
+                                                    <div class="col-md-6 pr-1">
+                                                        <div class="form-group">
+                                                            <label>Birthday</label>
+                                                            <input id = "birthday1" type="date" class="form-control" name="birthday" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 pl-1">
+                                                        <div class="form-group">
+                                                            <label>Cellphone</label>
+                                                            <input id = "cellphone1" type="number" class="form-control" name="cellphone"
+                                                                placeholder="Cellphone" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 pl-1">
+                                                        <div class="form-group">
+                                                            <label>Address</label>
+                                                            <input id="address1" type="text" class="form-control" name="address"
+                                                                placeholder="address" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 pr-1">
+                                                            <div class="form-group">
+                                                                <label>Username</label>
+                                                                <input id="username1" type="email" class="form-control" placeholder="Username" name="username" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 pl-1">
+                                                            <div class="form-group">
+                                                                <label>Password</label>
+                                                                <input id="password1" type="password" class="form-control" placeholder="Password" name="password" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -237,6 +337,18 @@
                         })
                     }
                 })
+            }
+            function editUser(customerString){
+                var customer = JSON.parse(decodeURIComponent(customerString))
+                document.getElementById('name1').value = customer.name
+                document.getElementById('lastName1').value = customer.lastName
+                document.getElementById('documentType1').value = customer.documentType
+                document.getElementById('documentNumber1').value = customer.documentNumber
+                document.getElementById('birthday1').value = customer.birthday
+                document.getElementById('cellphone1').value = customer.cellphone
+                document.getElementById('address1').value = customer.address
+                document.getElementById('username1').value = customer.username
+                document.getElementById('password1').value = customer.password
             }
         </script>
 </body>

@@ -76,6 +76,7 @@ router.get("/dashboard/registerCustomer", (req, res) => {
 
 router.post("/dashboard/registerCustomer/register", serviceCustomerManagement.registerCustomer)
 router.delete("/dashboard/customersManagement/delete/:username", serviceCustomerManagement.deleteCustomer)
+router.post("/dashboard/customersManagement/edit", serviceCustomerManagement.updateCustomer)
 
 router.get("/dashBoard/bookManagement", (req, res) => {
   req.session = req.session || {};

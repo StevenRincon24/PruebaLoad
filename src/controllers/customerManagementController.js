@@ -58,9 +58,35 @@ const deleteCustomer = (username) => {
     })
 }
 
+const updateCustomer = (name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password) =>{
+  const newUserData = {
+    password,
+    rol,
+    name,
+    lastName,
+    documentType,
+    documentNumber,
+    cellphone,
+    address,
+    birthday
+  }
+  return new Promise((resolve, reject) => {
+      data.usuarios[username] = newUserData;
+      const newContent = JSON.stringify(data, null, 2);
+      fs.writeFile(filePath, newContent, (err) => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve(newUserData);
+          }
+      })
+  })
+}
+
 
 module.exports ={
     getCustomerData,
     registerCustomer,
-    deleteCustomer
+    deleteCustomer,
+    updateCustomer
 }
