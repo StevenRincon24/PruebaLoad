@@ -142,5 +142,20 @@ router.get("/dashboard/registerLoan", (req, res) => {
 
 router.post("/dashboard/registerLoan/register", serviceCustomerManagement.registerLoan)
 
+router.get("/dashBoard/loansManagement", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  const customersData = serviceCustomerManagement.getCustomerData();
+  if (rol) {
+    res.render("./employee/loanManagement", {
+      data: rol,
+      username: username,
+      customers: customersData,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 
 module.exports = router;
