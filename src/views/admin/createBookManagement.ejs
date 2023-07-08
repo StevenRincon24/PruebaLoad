@@ -150,68 +150,124 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
-                                <div class="card-header ">
-                                    <h4 class="card-title">Employees</h4>
-
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Add book</h4>
                                 </div>
-                                <div class="card-body table-full-width table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                            <th>ISBN</th>
-                                            <th>Name</th>
-                                            <th>Author</th>
-                                            <th>Genre</th>
-                                            <th>Number of copies</th>
-                                            <th>Date publication</th>
-                                            <th>Fine value</th>
-                                            <th>Delete </th>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                <div class="card-body">
+                                    <form action="/book/createBook" method="post">
+
+                                        <div class="row">
+                                            <div class="col-md-4 pr-1">
+                                                <div class="form-group">
+                                                    <label>ISBN</label>
+                                                    <input type="text" class="form-control" placeholder="ISBN"
+                                                        name="ISBN" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control" placeholder="Author"
+                                                        name="name" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label>Author</label>
+                                                    <input type="text" class="form-control" placeholder="Author"
+                                                        name="author" required>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Genre</label>
+                                                    <input type="text" class="form-control" name="genre"
+                                                        placeholder="Genre" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label>Number of copies</label>
+                                                    <input type="number" class="form-control" name="copies"
+                                                        placeholder="Number of copies" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Date publication</label>
+                                                    <input type="date" class="form-control" placeholder="Username"
+                                                        name="publication" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label>Fine value</label>
+                                                    <input type="text" class="form-control" placeholder="Fine value"
+                                                        name="fine" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-info btn-fill">Add</button>
+                                            <button type="submit" class="btn btn-danger btn-fill">Cancel</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <!--END TABLE-->
-                        <footer class="footer">
-                            <div class="container-fluid">
-                                <nav>
-                                    <ul class="footer-menu">
-                                        <li>
-                                            <a href="#">
-                                                Home
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Company
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Portfolio
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Blog
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <p class="copyright text-center">
-                                        ©
-                                        <script>
-                                            document.write(new Date().getFullYear())
-                                        </script>
-                                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a
-                                        better web
-                                    </p>
-                                </nav>
-                            </div>
-                        </footer>
+
                     </div>
                 </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Company
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
 </body>
 
 <!--   Core JS Files   -->

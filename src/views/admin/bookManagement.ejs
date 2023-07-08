@@ -22,37 +22,82 @@
                 </div>
                 <ul class="nav">
                     <% if(data==='admin' ){%>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashBoard/employeesManagement">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/dashBoard/employeeManagement"
+                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fa-solid fa-users"></i>
-                                <p>Employees</p>
+                                <span>Employees</span>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/dashBoard/employeeManagement">Employees list</a>
+
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="/dashBoard/createEmployee">Add employee</a>
+                            </div>
                         </li>
-                        <li>
-                            <a class="nav-link" href="/dashBoard/bookManagement">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/dashBoard/bookManagement"
+                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fa-solid fa-book"></i>
-                                <p>Books</p>
+                                <span>Books</span>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/dashBoard/bookManagement">Book list</a>
+
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="/dashBoard/createBookManagement">Add Book</a>
+                            </div>
                         </li>
                         <%}%>
                             <% if(data==='employee' ){%>
-                                <li>
-                                    <a class="nav-link" href="./user.html">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/dashBoard/bookManagement"
+                                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                         <i class="fa-solid fa-book"></i>
-                                        <p>Books</p>
+                                        <span>Books</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/dashBoard/bookManagement">List Books</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/dashBoard/createBookManagement">Add Book</a>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="/dashboard/customersManagement">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/dashBoard/customersManagement"
+                                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                         <i class="fa-solid fa-people-group"></i>
-                                        <p>Customers</p>
+                                        <span>Customers</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/dashBoard/customersManagement">List
+                                            Customers</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/dashboard/registerCustomer">Add Customer</a>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="./user.html">
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa-solid fa-note-sticky"></i>
-                                        <p>Loans</p>
+                                        <span>Loans</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/">List
+                                            Loans</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/">Add Loan</a>
+                                    </div>
                                 </li>
                                 <%}%>
                                     <% if(data==='customer' ){%>
@@ -106,124 +151,97 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Add book</h4>
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Books</h4>
+
                                 </div>
-                                <div class="card-body">
-                                    <form action="/book/createBook" method="post">
-
-                                        <div class="row">
-                                            <div class="col-md-4 pr-1">
-                                                <div class="form-group">
-                                                    <label>ISBN</label>
-                                                    <input type="text" class="form-control" placeholder="ISBN"
-                                                        name="ISBN" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Name</label>
-                                                    <input type="text" class="form-control" placeholder="Author"
-                                                        name="name" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Author</label>
-                                                    <input type="text" class="form-control" placeholder="Author"
-                                                        name="author" required>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6 pr-1">
-                                                <div class="form-group">
-                                                    <label>Genre</label>
-                                                    <input type="text" class="form-control" name="genre"
-                                                        placeholder="Genre" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 pl-1">
-                                                <div class="form-group">
-                                                    <label>Number of copies</label>
-                                                    <input type="number" class="form-control" name="copies"
-                                                        placeholder="Number of copies" required>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6 pr-1">
-                                                <div class="form-group">
-                                                    <label>Date publication</label>
-                                                    <input type="date" class="form-control" placeholder="Username"
-                                                        name="publication" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 pl-1">
-                                                <div class="form-group">
-                                                    <label>Fine value</label>
-                                                    <input type="text" class="form-control" placeholder="Fine value"
-                                                        name="fine" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-info btn-fill">Add</button>
-                                            <button type="submit" class="btn btn-danger btn-fill">Cancel</button>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </form>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <th>ISBN</th>
+                                            <th>Name</th>
+                                            <th>Author</th>
+                                            <th>Genre</th>
+                                            <th>Number of copies</th>
+                                            <th>Date publication</th>
+                                            <th>Fine value</th>
+                                            <th>Delete </th>
+                                        </thead>
+                                        <tbody>
+                                            <% books.forEach(function(book) { %>
+                                                <tr>
+                                                    <td>
+                                                        <%= book.id %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.name %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.author %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.genre %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.copies %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.publication %>
+                                                    </td>
+                                                    <td>
+                                                        <%= book.fine %>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger"
+                                                            onclick="deleteUser('<%= book.id %>')">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-
+                        <!--END TABLE-->
+                        <footer class="footer">
+                            <div class="container-fluid">
+                                <nav>
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="#">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Company
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Portfolio
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Blog
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <p class="copyright text-center">
+                                        ©
+                                        <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>
+                                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a
+                                        better web
+                                    </p>
+                                </nav>
+                            </div>
+                        </footer>
                     </div>
                 </div>
-            </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                        </p>
-                    </nav>
-                </div>
-            </footer>
-        </div>
-    </div>
 </body>
 
 <!--   Core JS Files   -->
