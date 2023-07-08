@@ -1,8 +1,17 @@
+const data = require("../data/book.json");
 const fs = require("fs");
-
 const path = require("path");
-
 const filePath = path.join(__dirname, "../data/book.json");
+
+const getBookData = () => {
+  const books = Object.keys(data).map((bookId) => {
+    return {
+      id: bookId,
+      ...data[bookId]
+    };
+  });
+  return books;
+};
 
 const addBook = (ISBN, name, author, genre, copies, publication, fine) => {
   console.log(ISBN);
@@ -35,4 +44,7 @@ const addBook = (ISBN, name, author, genre, copies, publication, fine) => {
   });
 };
 
-module.exports = { addBook };
+module.exports = {
+  getBookData,
+  addBook,
+};

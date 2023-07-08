@@ -22,37 +22,81 @@
                 </div>
                 <ul class="nav">
                     <% if(data==='admin' ){%>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashBoard/employeesManagement">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/dashBoard/employeeManagement"
+                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fa-solid fa-users"></i>
-                                <p>Employees</p>
+                                <span>Employees</span>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/dashBoard/employeeManagement">List Employees</a>
+
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="/dashBoard/createEmployee">Add Employee</a>
+                            </div>
                         </li>
-                        <li>
-                            <a class="nav-link" href="/dashBoard/bookManagement">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/dashBoard/bookManagement"
+                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fa-solid fa-book"></i>
-                                <p>Books</p>
+                                <span>Books</span>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/dashBoard/bookManagement">Book list</a>
+
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="/dashBoard/createBookManagement">Add Book</a>
+                            </div>
                         </li>
                         <%}%>
                             <% if(data==='employee' ){%>
-                                <li>
-                                    <a class="nav-link" href="./user.html">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/dashBoard/bookManagement"
+                                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                         <i class="fa-solid fa-book"></i>
-                                        <p>Books</p>
+                                        <span>Books</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/dashBoard/bookManagement">List Books</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/dashBoard/createBookManagement">Add Book</a>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="/dashboard/customersManagement">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/dashBoard/customersManagement"
+                                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                         <i class="fa-solid fa-people-group"></i>
-                                        <p>Customers</p>
+                                        <span>Customers</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/dashBoard/customersManagement">List
+                                            Customers</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/dashboard/registerCustomer">Add Customer</a>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="./user.html">
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa-solid fa-note-sticky"></i>
-                                        <p>Loans</p>
+                                        <span>Loans</span>
                                     </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="/">List
+                                            Loans</a>
+
+                                        <div class="divider"></div>
+                                        <a class="dropdown-item" href="/">Add Loan</a>
+                                    </div>
                                 </li>
                                 <%}%>
                                     <% if(data==='customer' ){%>
@@ -132,35 +176,37 @@
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
                                                     <label for="documentType">Document Type</label>
-                                                    <select class="form-select form-control" id="documentType" name="documentType" required="required">
+                                                    <select class="form-select form-control" id="documentType"
+                                                        name="documentType" required="required">
                                                         <option value="Citizenship card">Citizenship card</option>
                                                         <option value="Foreigner ID">Foreigner ID</option>
                                                         <option value="NIT">NIT</option>
                                                     </select>
-                                                </div>    
+                                                </div>
                                             </div>
                                             <div class="col-md-6 pl-1">
                                                 <div class="form-group">
                                                     <label for="documentNumber">Document Number</label>
-                                                    <input type="number" class="form-control" name="documentNumber" required>
-                                                </div> 
+                                                    <input type="number" class="form-control" name="documentNumber"
+                                                        required>
+                                                </div>
                                             </div>
-                                        </div>                               
+                                        </div>
                                         <div class="row">
-                                            <div class="col-md-6 pr-1">
+                                            <div class="col-md-4 pr-1">
                                                 <div class="form-group">
                                                     <label>Birthday</label>
                                                     <input type="date" class="form-control" name="birthday" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 pl-1">
+                                            <div class="col-md-4 pl-1">
                                                 <div class="form-group">
                                                     <label>Cellphone</label>
                                                     <input type="number" class="form-control" name="cellphone"
                                                         placeholder="Cellphone" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 pl-1">
+                                            <div class="col-md-4 pl-1">
                                                 <div class="form-group">
                                                     <label>Address</label>
                                                     <input type="text" class="form-control" name="address"
@@ -187,7 +233,8 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-info btn-fill">Add</button>
-                                            <a href="/dashBoard/customersManagement" class="btn btn-danger" id="button">Cancel</a>
+                                            <a href="/dashBoard/customersManagement" class="btn btn-danger"
+                                                id="button">Cancel</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </form>

@@ -1,5 +1,11 @@
 const bookController = require("../controllers/bookController");
 
+const getBookData = () => {
+  const bookData = bookController.getBookData();
+  console.log(bookData);
+  return bookData;
+};
+
 const createBook = (req, res) => {
   const { ISBN, name, author, genre, copies, publication, fine } = req.body;
   const book = bookController.addBook(
@@ -12,12 +18,13 @@ const createBook = (req, res) => {
     fine
   );
   if (book) {
-    res.redirect("/dashBoard/bookManagement");
+    res.redirect("/dashBoard/createBookManagement");
   } else {
-    res.redirect("/dashBoard/bookManagement");
+    res.redirect("/dashBoard/createBookManagement");
   }
 };
 
 module.exports = {
+  getBookData,
   createBook,
 };
