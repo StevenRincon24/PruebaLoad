@@ -1,0 +1,34 @@
+{
+    "123": {
+        "name": "Cien años de soledad",
+        "author": "Garcia Marquez",
+        "genre": "Drama",
+        "copies": "4",
+        "publication": "1967-05-01",
+        "fine": "10000"
+    },
+    "1234": {
+        "name": "sdf",
+        "author": "fsdfsd",
+        "genre": "fsdfsd",
+        "copies": "4",
+        "publication": "2023-07-22",
+        "fine": "121312"
+    },
+    "1323": {
+        "name": "123312",
+        "author": "123123",
+        "genre": "asd",
+        "copies": "3",
+        "publication": "1931-11-11",
+        "fine": "das"
+    },
+    "312321": {
+        "name": "123321",
+        "author": "123231",
+        "genre": "dasdas",
+        "copies": "321",
+        "publication": "1932-11-11",
+        "fine": "ssdf"
+    }
+}
