@@ -60,7 +60,24 @@ router.get("/dashBoard/customersManagement", (req, res) => {
   } else {
     res.redirect("/");
   }
-});
+})
+
+router.get("/dashboard/registerCustomer", (req, res) => {
+  req.session = req.session || {};
+  const rol = req.session.data;
+  const username = req.session.username;
+
+  if (rol) {
+    res.render("./employee/registerCustomerManagement", {
+      data: rol,
+      username: username,
+    })
+  } else {
+    res.redirect("/");
+  }
+})
+
+router.post("/dashboard/registerCustomer/register", serviceCustomerManagement.registerCustomer)
 
 router.get("/dashBoard/bookManagement", (req, res) => {
   req.session = req.session || {};
@@ -74,7 +91,7 @@ router.get("/dashBoard/bookManagement", (req, res) => {
   } else {
     res.redirect("/");
   }
-});
+})
 
 router.post("/book/createBook", serviceBook.createBook);
 

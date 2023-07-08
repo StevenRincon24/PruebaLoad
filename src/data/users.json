@@ -1,23 +1,67 @@
 {
-    "usuarios":{
-        "admin@gmail.com":{
-            "password": "321321321",
-            "rol": "admin"
-        },
-        "ivan@gmail.com":{
-            "password": "321321321",
-            "rol": "employee"
-        },
-        "customer@gmail.com":{
-            "password": "321321321",
-            "rol": "customer",
-            "Name": "Andrés",
-            "Last Name": "Espinel",
-            "Document Type": "citizenship card",
-            "Document Number": "1007751451",
-            "Celphone Number": "3232510960",
-            "Address": "Vereda miagro y playita",
-            "Registration Date": "2001-08-17"         
-        }
+  "usuarios": {
+    "admin@gmail.com": {
+      "password": "321321321",
+      "rol": "admin"
+    },
+    "ivan@gmail.com": {
+      "password": "321321321",
+      "rol": "employee"
+    },
+    "customer@gmail.com": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "Andrés",
+      "lastName": "Espinel",
+      "documentType": "citizenship card",
+      "documentNumber": "1007751451",
+      "cellphone": "3232510960",
+      "Address": "Vereda miagro y playita",
+      "birthday": "2001-08-17"
+    },
+    "carlos.sierra@gmail.com": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "carlos",
+      "lastName": "sierra",
+      "documentType": "Citizenship card",
+      "documentNumber": "9532024",
+      "cellphone": "3103029744",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "1967-10-29"
+    },
+    "julio@gmail.com": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "julio",
+      "lastName": "sierra",
+      "documentType": "Citizenship card",
+      "documentNumber": "1004564613",
+      "cellphone": "3213118030",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "1999-06-19"
+    },
+    "asdas@asdas.com": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "asd",
+      "lastName": "asd",
+      "documentType": "Citizenship card",
+      "documentNumber": "3213213213",
+      "cellphone": "321321321321",
+      "address": "asdas",
+      "birthday": "2023-07-05"
+    },
+    "andres.sierra03@uptc.edu.co": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "edede",
+      "lastName": "edede",
+      "documentType": "Citizenship card",
+      "documentNumber": "651651",
+      "cellphone": "321321321",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "2023-06-27"
     }
+  }
 }

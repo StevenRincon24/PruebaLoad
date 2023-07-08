@@ -109,7 +109,7 @@
                         <h1 class="text-center mb-4" style="font-family: 'Arial Rounded MT Bold', sans-serif">Customers
                             Management</h1>
                         <div class="container">
-                            <a href="#registrar" class="btn btn-primary" id="button">Register new customer</a>
+                            <a href="/dashboard/registerCustomer" class="btn btn-primary" id="button">Register new customer</a>
                         </div>
                         <br>
                         <div class="container">
@@ -123,7 +123,7 @@
                                             <th>Document Number</th>
                                             <th>Celphone Number</th>
                                             <th>Address</th>
-                                            <th>Registration Date</th>
+                                            <th>Birthday</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -131,25 +131,25 @@
                                         <% customers.forEach(function(customer) { %>
                                             <tr>
                                                 <td>
-                                                    <%= customer.Name %>
+                                                    <%= customer.name %>
                                                 </td>
                                                 <td>
-                                                    <%= customer["Last Name"] %>
+                                                    <%= customer.lastName %>
                                                 </td>
                                                 <td>
-                                                    <%= customer["Document Type"] %>
+                                                    <%= customer.documentType %>
                                                 </td>
                                                 <td>
-                                                    <%= customer["Document Number"] %>
+                                                    <%= customer.documentNumber %>
                                                 </td>
                                                 <td>
-                                                    <%= customer["Celphone Number"] %>
+                                                    <%= customer.cellphone %>
                                                 </td>
                                                 <td>
-                                                    <%= customer.Address %>
+                                                    <%= customer.address %>
                                                 </td>
                                                 <td>
-                                                    <%= customer["Registration Date"] %>
+                                                    <%= customer.birthday %>
                                                 </td>
                                                 <td>
                                                     <!-- Acciones -->
