@@ -10,6 +10,7 @@ const validateLogin = (req, res) =>{
         if (rol) {
           if (rol === 'admin' || rol === 'employee' || rol === 'customer') {
             req.session.data = rol
+            req.session.username = username
             res.redirect('/dashboard')
           } else {
             res.redirect('/')

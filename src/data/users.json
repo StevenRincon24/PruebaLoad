@@ -3,6 +3,21 @@
         "admin@gmail.com":{
             "password": "321321321",
             "rol": "admin"
+        },
+        "ivan@gmail.com":{
+            "password": "321321321",
+            "rol": "employee"
+        },
+        "customer@gmail.com":{
+            "password": "321321321",
+            "rol": "customer",
+            "Name": "Andrés",
+            "Last Name": "Espinel",
+            "Document Type": "citizenship card",
+            "Document Number": "1007751451",
+            "Celphone Number": "3232510960",
+            "Address": "Vereda miagro y playita",
+            "Registration Date": "2001-08-17"         
         }
     }
 }
