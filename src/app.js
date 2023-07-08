@@ -17,17 +17,3 @@ console.log("eooo" + path.join(__dirname, "views"));
 
 app.use("/", require("./routes/web"));
 
-app.post("/login", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  const usuario = Usuario.validarNombre(username);
-  
-  if (usuario && Usuario.validarPassword(usuario, password)) {
-    
-    res.redirect("/admin");
-  } else {
-    
-    res.redirect("/");
-  }
-});

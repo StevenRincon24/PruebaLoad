@@ -1,0 +1,8 @@
+{
+    "usuarios":{
+        "admin@gmail.com":{
+            "password": "321321321",
+            "rol": "admin"
+        }
+    }
+}
