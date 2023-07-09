@@ -32,6 +32,13 @@
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
           "state": false
+        },
+        {
+          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 22:08:07 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "123123123",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": false
         }
       ]
     },

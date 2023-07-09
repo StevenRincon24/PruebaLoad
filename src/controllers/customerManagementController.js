@@ -102,6 +102,7 @@ const registerLoan = (username, ISBN) => {
       dataBook[ISBN].copies--;
 
       data.usuarios[username].loans.push({
+        id: username + currentDate,
         isbn: ISBN,
         startDate: startDateString,
         endDate: endDateString,
