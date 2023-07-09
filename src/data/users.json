@@ -60,6 +60,13 @@
           "startDate": "2023-07-09",
           "endDate": "2023-07-17",
           "state": false
+        },
+        {
+          "id": "andres.sierra03@uptc.edu.coSun Jul 09 2023 17:42:34 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "123456789",
+          "startDate": "2023-07-09",
+          "endDate": "2023-07-17",
+          "state": true
         }
       ]
     },
@@ -86,6 +93,13 @@
           "isbn": "123456",
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
+          "state": true
+        },
+        {
+          "id": "hovar.rincon@uptc.edu.coSun Jul 09 2023 17:20:01 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "1",
+          "startDate": "2023-07-09",
+          "endDate": "2023-07-17",
           "state": true
         }
       ]

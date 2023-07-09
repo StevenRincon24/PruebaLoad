@@ -189,6 +189,10 @@ router.post(
   "/dashboard/employeeManagement/edit",
   serviceEmployeeManagement.updateEmployee
 );
+router.delete(
+  "/dashboard/employeeManagement/delete/:username",
+  serviceEmployeeManagement.deleteEmployee
+);
 
 router.get("/dashBoard/loansManagement", (req, res) => {
   const rol = req.session.data;

@@ -73,20 +73,20 @@ const updateCustomer = (name, lastName, documentType, documentNumber, birthday, 
     documentNumber,
     cellphone,
     address,
-    birthday,
-  };
+    birthday
+  }
   return new Promise((resolve, reject) => {
-    data.usuarios[newUser] = newUserData;
-    const newContent = JSON.stringify(data, null, 2);
-    fs.writeFile(filePath, newContent, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(newUserData);
-      }
-    });
-  });
-};
+      data.usuarios[username] = newUserData;
+      const newContent = JSON.stringify(data, null, 2);
+      fs.writeFile(filePath, newContent, (err) => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve(newUserData);
+          }
+      })
+  })
+}
 
 
 

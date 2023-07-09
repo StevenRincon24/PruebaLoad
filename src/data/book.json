@@ -11,9 +11,17 @@
     "name": "234",
     "author": "3232",
     "genre": "323",
-    "copies": 2,
+    "copies": 1,
     "publication": "2023-07-08",
     "fine": "3"
+  },
+  "6": {
+    "name": "asdasd",
+    "author": "adsasdas",
+    "genre": "asdasdas",
+    "copies": "8",
+    "publication": "2001-08-17",
+    "fine": "40000"
   },
   "123456": {
     "name": "asdfg",
@@ -35,7 +43,7 @@
     "name": "sdfghjnm,",
     "author": "dfgj",
     "genre": "sdfghj",
-    "copies": 31,
+    "copies": 30,
     "publication": "2023-07-07",
     "fine": "11111"
   },
