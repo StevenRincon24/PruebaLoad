@@ -62,6 +62,7 @@ router.get("/dashBoard/customersManagement", (req, res) => {
 });
 
 router.get("/dashBoard/bookManagement", (req, res) => {
+  req.session = req.session || {};
   const rol = req.session.data;
   const username = req.session.username;
   const bookData = serviceBook.getBookData();
@@ -89,9 +90,18 @@ router.get("/dashboard/registerCustomer", (req, res) => {
   }
 });
 
-router.post("/dashboard/registerCustomer/register", serviceCustomerManagement.registerCustomer)
-router.delete("/dashboard/customersManagement/delete/:username", serviceCustomerManagement.deleteCustomer)
-router.post("/dashboard/customersManagement/edit", serviceCustomerManagement.updateCustomer)
+router.post(
+  "/dashboard/registerCustomer/register",
+  serviceCustomerManagement.registerCustomer
+);
+router.delete(
+  "/dashboard/customersManagement/delete/:username",
+  serviceCustomerManagement.deleteCustomer
+);
+router.post(
+  "/dashboard/customersManagement/edit",
+  serviceCustomerManagement.updateCustomer
+);
 
 router.get("/dashBoard/createBookManagement", (req, res) => {
   req.session = req.session || {};
@@ -122,5 +132,6 @@ router.get("/dashBoard/createEmployee", (req, res) => {
 });
 
 router.post("/book/createBook", serviceBook.createBook);
-
+router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
+router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 module.exports = router;
