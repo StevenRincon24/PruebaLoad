@@ -59,6 +59,13 @@
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
           "state": false
+        },
+        {
+          "id": "hovar.rincon@uptc.edu.coSat Jul 08 2023 22:23:39 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "123456",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
         }
       ]
     }

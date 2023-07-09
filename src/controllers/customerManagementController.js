@@ -160,11 +160,16 @@ const updateStatus = (username, id) => {
   })
 }
 
+const getCustomerDataUnique = (username) => {
+  return data.usuarios[username]
+}
+
 module.exports ={
     getCustomerData,
     registerCustomer,
     deleteCustomer,
     updateCustomer,
     registerLoan,
-    updateStatus
+    updateStatus,
+    getCustomerDataUnique
 }

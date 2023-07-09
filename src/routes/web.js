@@ -148,6 +148,8 @@ router.get("/dashBoard/createEmployee", (req, res) => {
 });
 
 router.post("/book/createBook", serviceBook.createBook);
+router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
+router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 
 router.get("/dashboard/registerLoan", (req, res) => {
   const rol = req.session.data
@@ -185,6 +187,36 @@ router.get("/dashBoard/loansManagement", (req, res) => {
 
 router.post("/dashBoard/loansManagement/changeStatus/:username/:id", serviceCustomerManagement.updateStatus)
 
-router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
-router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
+router.get("/dashBoard/loansHistoryManagement", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  const customersData = serviceCustomerManagement.getCustomerDataUnique(username);
+  if (rol) {
+    res.render("./customer/loansHistoryManagement", {
+      data: rol,
+      username: username,
+      customer: customersData,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/dashBoard/loansPendingManagement", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  const customersData = serviceCustomerManagement.getCustomerDataUnique(username);
+  if (rol) {
+    res.render("./customer/loansPendingManagement", {
+      data: rol,
+      username: username,
+      customer: customersData,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+
+
 module.exports = router;

@@ -72,11 +72,17 @@ const updateStatus = (req, res) => {
     });
 };
 
+const getCustomerDataUnique = (username) =>{
+  const customerData = customerManagementController.getCustomerDataUnique(username)
+  return customerData
+}
+
 module.exports = {
     getCustomerData,
     registerCustomer,
     deleteCustomer,
     updateCustomer,
     registerLoan,
-    updateStatus
+    updateStatus,
+    getCustomerDataUnique 
 }
