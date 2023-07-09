@@ -49,10 +49,10 @@ const registerLoan = (req, res) =>{
     
   customerManagementController.registerLoan(username, ISBN)
       .then(() => {
-          res.redirect("/dashboard/registerLoan");
+          res.redirect("/dashboard/loansManagement");
       })
       .catch((err) => {
-          console.error(err);
+        
           res.redirect("/dashboard/registerLoan");
       });
 }
