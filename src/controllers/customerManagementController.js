@@ -1,4 +1,5 @@
-const data = require("../data/users.json");
+const data = require('../data/users.json')
+const dataBook = require("../data/book.json");
 const fs = require("fs");
 const path = require("path");
 const filePath = path.join(__dirname, "../data/users.json");
@@ -14,19 +15,55 @@ const getCustomerData = () => {
   return customers;
 };
 
-const registerCustomer = (
-  name,
-  lastName,
-  documentType,
-  documentNumber,
-  birthday,
-  cellphone,
-  address,
-  username,
-  password
-) => {
-  const rol = "customer";
-  const newUser = username;
+const registerCustomer = (name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password) => {
+    const rol = "customer"
+    const newUser = username
+    const loans = []
+    const newUserData = {
+        password,
+        rol,
+        name,
+        lastName,
+        documentType,
+        documentNumber,
+        cellphone,
+        address,
+        birthday,
+        loans
+    }
+    return new Promise((resolve, reject) => {
+        data.usuarios[newUser] = newUserData;
+        const newContent = JSON.stringify(data, null, 2);
+        fs.writeFile(filePath, newContent, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(newUserData);
+            }
+        })
+    })
+}
+
+const deleteCustomer = (username) => {
+    return new Promise((resolve, reject) => {
+      if (data.usuarios.hasOwnProperty(username)) {
+        delete data.usuarios[username];
+        const newContent = JSON.stringify(data, null, 2)
+        fs.writeFile(filePath, newContent, (err) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
+          }
+        })
+      } else {
+        reject(new Error('El usuario no existe'));
+      }
+    })
+}
+
+
+const updateCustomer = (name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol) =>{
   const newUserData = {
     password,
     rol,
@@ -51,23 +88,7 @@ const registerCustomer = (
   });
 };
 
-const deleteCustomer = (username) => {
-  return new Promise((resolve, reject) => {
-    if (data.usuarios.hasOwnProperty(username)) {
-      delete data.usuarios[username];
-      const newContent = JSON.stringify(data, null, 2)
-      fs.writeFile(filePath, newContent, (err) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve()
-        }
-      });
-    } else {
-      reject(new Error("El usuario no existe"));
-    }
-  })
-}
+
 
 const registerLoan = (username, ISBN) => {
   return new Promise((resolve, reject) => {
@@ -81,7 +102,6 @@ const registerLoan = (username, ISBN) => {
       dataBook[ISBN].copies--;
 
       data.usuarios[username].loans.push({
-        id: username+currentDate,
         isbn: ISBN,
         startDate: startDateString,
         endDate: endDateString,
@@ -95,11 +115,17 @@ const registerLoan = (username, ISBN) => {
         if (err) {
           reject(err)
         } else {
-          resolve()
+          fs.writeFile(filePath2, newContentBooks, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
         }
       });
     } else {
-      reject(new Error("El usuario no existe"))
+      reject("No hay copias disponibles de este libro");
     }
   })
 }
