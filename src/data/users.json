@@ -8,6 +8,25 @@
       "password": "321321321",
       "rol": "employee"
     },
+    "andres.sierra03@uptc.edu.co": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "Andrés Ivan",
+      "lastName": "Sierra Espinel",
+      "documentType": "Citizenship card",
+      "documentNumber": "1007751451",
+      "cellphone": "3232510960",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "2001-08-17",
+      "loans": [
+        {
+          "isbn": "123",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        }
+      ]
+    },
     "hovar.rincon@uptc.edu.co": {
       "password": "1234",
       "rol": "customer",
