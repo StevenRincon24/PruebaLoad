@@ -2,14 +2,14 @@
   "usuarios": {
     "admin@gmail.com": {
       "password": "321321321",
-      "rol": "admin",
-      "name": "Hovar Steven ",
-      "lastName": "Rincon Viancha",
+      "rol": "customer",
+      "name": "Steven Edit",
+      "lastName": "Rincon",
       "documentType": "Citizenship card",
-      "documentNumber": "1234567890",
-      "cellphone": "1234567890",
-      "address": "Nobsa",
-      "birthday": "2015-11-23"
+      "documentNumber": "11111",
+      "cellphone": "111111",
+      "address": "Sogamoso",
+      "birthday": "1988-11-11"
     },
     "ivan@gmail.com": {
       "password": "321321321",
@@ -59,33 +59,13 @@
           "isbn": "123456789",
           "startDate": "2023-07-09",
           "endDate": "2023-07-17",
-          "state": false
-        }
-      ]
-    },
-    "hovar.rincon@uptc.edu.co": {
-      "password": "1234",
-      "rol": "customer",
-      "name": "Hovar Steven ",
-      "lastName": "Rincon Viancha",
-      "documentType": "Citizenship card",
-      "documentNumber": "1053587859",
-      "cellphone": "3118617677",
-      "address": "Sogamoso",
-      "birthday": "1998-11-24",
-      "loans": [
-        {
-          "id": "hovar.rincon@uptc.edu.coSat Jul 08 2023 21:49:35 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "123123",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
-          "state": false
+          "state": true
         },
         {
-          "id": "hovar.rincon@uptc.edu.coSat Jul 08 2023 22:23:39 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "123456",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
+          "id": "andres.sierra03@uptc.edu.coSun Jul 09 2023 17:49:02 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "9999999999",
+          "startDate": "2023-07-09",
+          "endDate": "2023-07-17",
           "state": true
         }
       ]

@@ -227,6 +227,16 @@ router.post(
   serviceCustomerManagement.updateStatus
 );
 
+router.post(
+  "/dashboard/customersManagement/edit",
+  serviceCustomerManagement.updateCustomer
+);
+
+router.post(
+  "/dashboard/registerCustomer/register",
+  serviceCustomerManagement.registerCustomer
+);
+
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 module.exports = router;

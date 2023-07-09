@@ -83,7 +83,7 @@
     "name": "TEST 111",
     "author": "TEST A1",
     "genre": "TEST G1",
-    "copies": "1",
+    "copies": 0,
     "publication": "1998-11-11",
     "fine": "11111111"
   },
