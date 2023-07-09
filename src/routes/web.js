@@ -185,6 +185,11 @@ router.post(
   serviceCustomerManagement.registerLoan
 );
 
+router.post(
+  "/dashboard/employeeManagement/edit",
+  serviceEmployeeManagement.updateEmployee
+);
+
 router.get("/dashBoard/loansManagement", (req, res) => {
   const rol = req.session.data;
   const username = req.session.username;
