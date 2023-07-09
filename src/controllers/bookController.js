@@ -12,33 +12,37 @@ const getBookData = () => {
   });
   return books;
 };
-
 const addBook = (ISBN, name, author, genre, copies, publication, fine) => {
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Error al leer el archivo JSON" });
-    }
-    let books = JSON.parse(data);
-    const newId = ISBN;
-    const newBook = {
-      name,
-      author,
-      genre,
-      copies,
-      publication,
-      fine,
-    };
-
-    books[newId] = newBook;
-    fs.writeFile(filePath, JSON.stringify(books), (err) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, (err, data) => {
       if (err) {
-        console.log(err);
-        return false;
+        reject(err);
+        return;
       }
 
-      console.log("OK");
-      return true;
+      let books = JSON.parse(data);
+
+      const newBookData = {
+        name,
+        author,
+        genre,
+        copies,
+        publication,
+        fine,
+      };
+      const newIndex = Object.keys(books).length.toString();
+
+      books[newIndex] = newBookData;
+
+      const newContent = JSON.stringify(books, null, 2);
+
+      fs.writeFile(filePath, newContent, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(newBookData);
+        }
+      });
     });
   });
 };
@@ -61,7 +65,7 @@ const deleteBook = (isbn) => {
   });
 };
 
-const updateBook = (id, name, author, genre, copies, date, fine) => {
+const updateBook = (id, name, author, genre, copies, publication, fine) => {
   console.log(id);
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, (err, data) => {
@@ -78,7 +82,7 @@ const updateBook = (id, name, author, genre, copies, date, fine) => {
           author,
           genre,
           copies,
-          date,
+          publication,
           fine,
         };
 

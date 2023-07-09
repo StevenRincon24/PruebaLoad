@@ -1,10 +1,50 @@
 {
-  "123123": {
-    "name": "El amor en los tiempos de colera1",
-    "author": "Gabriel Garcia Marquez",
-    "genre": "Drama",
-    "copies": "7",
-    "date": "1998-11-11",
-    "fine": "10000"
+  "0": {
+    "name": "as",
+    "author": "as",
+    "genre": "as",
+    "copies": "0",
+    "publication": "2023-07-08",
+    "fine": "2"
+  },
+  "1": {
+    "name": "234",
+    "author": "3232",
+    "genre": "323",
+    "copies": "3",
+    "publication": "2023-07-08",
+    "fine": "3"
+  },
+  "6": {
+    "name": "dfgh",
+    "author": "sdfgh",
+    "genre": "34",
+    "copies": "45",
+    "publication": "2023-07-08",
+    "fine": "2345"
+  },
+  "123456": {
+    "name": "asdfg",
+    "author": "dfgh",
+    "genre": "4",
+    "copies": "6",
+    "publication": "2023-07-08",
+    "fine": "2345"
+  },
+  "123456789": {
+    "name": "sdfghjnm,",
+    "author": "dfgj",
+    "genre": "sdfghj",
+    "copies": "34",
+    "publication": "2023-07-07",
+    "fine": "11111"
+  },
+  "wer": {
+    "name": "sdfg",
+    "author": "dsfg",
+    "genre": "dfgfg",
+    "copies": "45",
+    "publication": "2023-07-08",
+    "fine": "324"
   }
 }

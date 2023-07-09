@@ -4,10 +4,6 @@
       "password": "321321321",
       "rol": "admin"
     },
-    "ivan@gmail.com": {
-      "password": "321321321",
-      "rol": "employee"
-    },
     "hovar.rincon@uptc.edu.co": {
       "password": "1234",
       "rol": "customer",
@@ -18,6 +14,28 @@
       "cellphone": "3118617677",
       "address": "Sogamoso",
       "birthday": "1998-11-24"
+    },
+    "hovar@gmail.com": {
+      "password": "1234",
+      "rol": "employee",
+      "name": "Hovar Steven ",
+      "lastName": "Rincon Viancha",
+      "documentType": "Citizenship card",
+      "documentNumber": "12345678901",
+      "cellphone": "3118617677",
+      "address": "Nobsa",
+      "birthday": "1998-11-24"
+    },
+    "1@gmail.com": {
+      "password": "12345",
+      "rol": "employee",
+      "name": "erdgfhj",
+      "lastName": "fghjm,",
+      "documentType": "Citizenship card",
+      "documentNumber": "12345678",
+      "cellphone": "123456789990",
+      "address": "dfgh",
+      "birthday": "1999-11-11"
     }
   }
 }

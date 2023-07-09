@@ -3,17 +3,17 @@ const fs = require("fs");
 const path = require("path");
 const filePath = path.join(__dirname, "../data/users.json");
 
-const getCustomerData = () => {
-  const customers = Object.keys(data.usuarios)
-    .filter((usuario) => data.usuarios[usuario].rol === "customer")
+const getEmployeeData = () => {
+  const employees = Object.keys(data.usuarios)
+    .filter((usuario) => data.usuarios[usuario].rol === "employee")
     .map((username) => ({
       username,
       ...data.usuarios[username],
     }));
-  return customers;
+  return employees;
 };
 
-const registerCustomer = (
+const registerEmployee = (
   name,
   lastName,
   documentType,
@@ -24,7 +24,7 @@ const registerCustomer = (
   username,
   password
 ) => {
-  const rol = "customer";
+  const rol = "employee";
   const newUser = username;
   const newUserData = {
     password,
@@ -50,7 +50,7 @@ const registerCustomer = (
   });
 };
 
-const deleteCustomer = (username) => {
+const deleteEmployee = (username) => {
   return new Promise((resolve, reject) => {
     if (data.usuarios.hasOwnProperty(username)) {
       delete data.usuarios[username];
@@ -63,12 +63,12 @@ const deleteCustomer = (username) => {
         }
       });
     } else {
-      reject(new Error("El usuario no existe"));
+      reject(new Error("El empleado no está registrado"));
     }
   });
 };
 
-const updateCustomer = (
+const updateEmployee = (
   name,
   lastName,
   documentType,
@@ -77,7 +77,8 @@ const updateCustomer = (
   cellphone,
   address,
   username,
-  password
+  password,
+  rol = "employee"
 ) => {
   const newUserData = {
     password,
@@ -104,8 +105,8 @@ const updateCustomer = (
 };
 
 module.exports = {
-  getCustomerData,
-  registerCustomer,
-  deleteCustomer,
-  updateCustomer,
+  getEmployeeData,
+  registerEmployee,
+  deleteEmployee,
+  updateEmployee,
 };
