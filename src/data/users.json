@@ -52,7 +52,7 @@
           "isbn": "123456789",
           "startDate": "2023-07-09",
           "endDate": "2023-07-17",
-          "state": true
+          "state": false
         }
       ]
     },

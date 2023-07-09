@@ -150,23 +150,40 @@ router.get("/dashBoard/createEmployee", (req, res) => {
 router.post("/book/createBook", serviceBook.createBook);
 
 router.get("/dashboard/registerLoan", (req, res) => {
-  const rol = req.session.data
-  const username = req.session.username
-  const bookData = serviceBook.getBookData()
-  const customersData = serviceCustomerManagement.getCustomerData()
+  const rol = req.session.data;
+  const username = req.session.username;
+  const bookData = serviceBook.getBookData();
+  const customersData = serviceCustomerManagement.getCustomerData();
   if (rol) {
     res.render("./employee/registerLoanCustomerManagement", {
       data: rol,
       username: username,
       bookData: bookData,
-      customers: customersData
+      customers: customersData,
     });
   } else {
     res.redirect("/");
   }
 });
-
-router.post("/dashboard/registerLoan/register", serviceCustomerManagement.registerLoan)
+router.get("/dashBoard/loansHistoryManagement", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  const customersData =
+    serviceCustomerManagement.getCustomerDataUnique(username);
+  if (rol) {
+    res.render("./customer/loansHistoryManagement", {
+      data: rol,
+      username: username,
+      customer: customersData,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.post(
+  "/dashboard/registerLoan/register",
+  serviceCustomerManagement.registerLoan
+);
 
 router.get("/dashBoard/loansManagement", (req, res) => {
   const rol = req.session.data;
@@ -183,7 +200,26 @@ router.get("/dashBoard/loansManagement", (req, res) => {
   }
 });
 
-router.post("/dashBoard/loansManagement/changeStatus/:username/:id", serviceCustomerManagement.updateStatus)
+router.get("/dashBoard/loansPendingManagement", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  const customersData =
+    serviceCustomerManagement.getCustomerDataUnique(username);
+  if (rol) {
+    res.render("./customer/loansPendingManagement", {
+      data: rol,
+      username: username,
+      customer: customersData,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.post(
+  "/dashBoard/loansManagement/changeStatus/:username/:id",
+  serviceCustomerManagement.updateStatus
+);
 
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
