@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const service = require("../services/loginService");
 const serviceCustomerManagement = require("../services/customerManagementService");
+const serviceEmployeeManagement = require("../services/employeeManagementService");
 const serviceBook = require("../services/createBookService");
 
 const router = express.Router();
@@ -31,15 +32,17 @@ router.get("/dashBoard", (req, res) => {
   }
 });
 
-router.get("/dashBoard/employeeManagement", (req, res) => {
+router.get("/dashBoard/EmployeeManagement", (req, res) => {
   req.session = req.session || {};
   const rol = req.session.data;
   const username = req.session.username;
+  const employeesData = serviceEmployeeManagement.getEmployeeData();
 
   if (rol) {
     res.render("./admin/employeeManagement", {
       data: rol,
       username: username,
+      employees: employeesData,
     });
   } else {
     res.redirect("/");
@@ -90,9 +93,22 @@ router.get("/dashboard/registerCustomer", (req, res) => {
   }
 });
 
+router.get("/dashboard/registerEmployee", (req, res) => {
+  const rol = req.session.data;
+  const username = req.session.username;
+  if (rol) {
+    res.render("./admin/createEmployeeManagement", {
+      data: rol,
+      username: username,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 router.post(
-  "/dashboard/registerCustomer/register",
-  serviceCustomerManagement.registerCustomer
+  "/dashboard/registerEmployee/register",
+  serviceEmployeeManagement.registerEmployee
 );
 router.delete(
   "/dashboard/customersManagement/delete/:username",
@@ -171,5 +187,4 @@ router.post("/dashBoard/loansManagement/changeStatus/:username/:id", serviceCust
 
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
-
 module.exports = router;

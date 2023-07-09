@@ -17,8 +17,10 @@ const createBook = (req, res) => {
     fine
   );
   if (book) {
-    res.redirect("/dashBoard/createBookManagement");
+    console.log("book true");
+    res.redirect("/dashBoard/bookManagement");
   } else {
+    console.log("book false");
     res.redirect("/dashBoard/createBookManagement");
   }
 };
@@ -38,7 +40,6 @@ const deleteBook = (req, res) => {
 
 const updateBook = (req, res) => {
   const { id, name, author, genre, copies, date, fine } = req.body;
-  console.log(id, " ID");
   bookController
     .updateBook(id, name, author, genre, copies, date, fine)
     .then(() => {
