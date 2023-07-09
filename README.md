@@ -2,6 +2,12 @@
 
 Este proyecto es un software desarrollado en Node.js con el framework Express y el motor de vistas EJS. Su objetivo principal es ayudar a la gestión de libros, empleados y préstamos en una biblioteca municipal. Proporciona un sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para administrar los datos asociados a los empleados, libros y servicios de la biblioteca.
 
+# Consideraciones de despliegue
+
+Para el correcto funcionamiento del sistema, hay que desplegarlo de la siguiente manera:
+- npm run start:prod
+El sistema se desplegará sobre el puerto **4000**.
+
 ## Contexto
 La biblioteca municipal es administrada por una persona encargada de gestionar los empleados y los libros disponibles. A continuación se detallan los principales elementos a tener en cuenta:
 

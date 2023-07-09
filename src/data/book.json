@@ -27,7 +27,7 @@
     "name": "asdfgh",
     "author": "sdfg",
     "genre": "sedfgh",
-    "copies": 3,
+    "copies": 2,
     "publication": "2023-07-08",
     "fine": "11111"
   },
@@ -35,7 +35,7 @@
     "name": "sdfghjnm,",
     "author": "dfgj",
     "genre": "sdfghj",
-    "copies": 32,
+    "copies": 31,
     "publication": "2023-07-07",
     "fine": "11111"
   },
@@ -43,7 +43,7 @@
     "name": "sdfg",
     "author": "dsfg",
     "genre": "dfgfg",
-    "copies": 44,
+    "copies": 43,
     "publication": "2023-07-08",
     "fine": "324"
   }
