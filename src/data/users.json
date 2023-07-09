@@ -2,7 +2,14 @@
   "usuarios": {
     "admin@gmail.com": {
       "password": "321321321",
-      "rol": "admin"
+      "rol": "admin",
+      "name": "Hovar Steven ",
+      "lastName": "Rincon Viancha",
+      "documentType": "Citizenship card",
+      "documentNumber": "1234567890",
+      "cellphone": "1234567890",
+      "address": "Nobsa",
+      "birthday": "2015-11-23"
     },
     "ivan@gmail.com": {
       "password": "321321321",

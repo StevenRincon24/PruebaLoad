@@ -39,16 +39,14 @@ const registerEmployee = (
   };
 
   const currentDate = new Date();
-  const minimumAge = 18;
+  const minimumAge = 18; // Edad mínima requerida en años
 
   const ageDifference = currentDate - new Date(birthday);
 
   const ageInYears = ageDifference / (1000 * 60 * 60 * 24 * 365.25);
 
   if (ageInYears < minimumAge) {
-    const error = new Error("El empleado debe ser mayor de edad.");
-    error.redirectUrl = "/dashboard/registerEmployee?error=1";
-    throw error;
+    return Promise.reject(new Error("El empleado debe ser mayor de edad."));
   }
 
   return new Promise((resolve, reject) => {
