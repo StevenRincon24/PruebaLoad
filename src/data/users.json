@@ -4,6 +4,35 @@
       "password": "321321321",
       "rol": "admin"
     },
+    "ivan@gmail.com": {
+      "password": "321321321",
+      "rol": "employee"
+    },
+    "andres.sierra03@uptc.edu.co": {
+      "password": "321321321",
+      "rol": "customer",
+      "name": "Andrés Ivan",
+      "lastName": "Sierra Espinel",
+      "documentType": "Citizenship card",
+      "documentNumber": "1007751451",
+      "cellphone": "3232510960",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "2001-08-17",
+      "loans": [
+        {
+          "isbn": "112",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        },
+        {
+          "isbn": "123123",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        }
+      ]
+    },
     "hovar.rincon@uptc.edu.co": {
       "password": "1234",
       "rol": "customer",
@@ -13,29 +42,8 @@
       "documentNumber": "1053587859",
       "cellphone": "3118617677",
       "address": "Sogamoso",
-      "birthday": "1998-11-24"
-    },
-    "hovar@gmail.com": {
-      "password": "1234",
-      "rol": "employee",
-      "name": "Hovar Steven ",
-      "lastName": "Rincon Viancha",
-      "documentType": "Citizenship card",
-      "documentNumber": "12345678901",
-      "cellphone": "3118617677",
-      "address": "Nobsa",
-      "birthday": "1998-11-24"
-    },
-    "1@gmail.com": {
-      "password": "12345",
-      "rol": "employee",
-      "name": "erdgfhj",
-      "lastName": "fghjm,",
-      "documentType": "Citizenship card",
-      "documentNumber": "12345678",
-      "cellphone": "123456789990",
-      "address": "dfgh",
-      "birthday": "1999-11-11"
+      "birthday": "1998-11-24",
+      "loans": []
     }
   }
 }
