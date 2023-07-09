@@ -137,10 +137,19 @@ router.get("/dashBoard/createEmployee", (req, res) => {
   req.session = req.session || {};
   const rol = req.session.data;
   const username = req.session.username;
+
+  // Verifica si el parámetro "error" está presente en la consulta de la URL
+  const error = req.query.error;
+  let errorMessage = "";
+  if (error) {
+    errorMessage = "El empleado debe ser mayor de edad.";
+  }
+
   if (rol) {
     res.render("./admin/createEmployeeManagement", {
       data: rol,
       username: username,
+      errorMessage: errorMessage, // Pasamos el mensaje de error a la vista
     });
   } else {
     res.redirect("/");
@@ -152,23 +161,26 @@ router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 
 router.get("/dashboard/registerLoan", (req, res) => {
-  const rol = req.session.data
-  const username = req.session.username
-  const bookData = serviceBook.getBookData()
-  const customersData = serviceCustomerManagement.getCustomerData()
+  const rol = req.session.data;
+  const username = req.session.username;
+  const bookData = serviceBook.getBookData();
+  const customersData = serviceCustomerManagement.getCustomerData();
   if (rol) {
     res.render("./employee/registerLoanCustomerManagement", {
       data: rol,
       username: username,
       bookData: bookData,
-      customers: customersData
+      customers: customersData,
     });
   } else {
     res.redirect("/");
   }
 });
 
-router.post("/dashboard/registerLoan/register", serviceCustomerManagement.registerLoan)
+router.post(
+  "/dashboard/registerLoan/register",
+  serviceCustomerManagement.registerLoan
+);
 
 router.get("/dashBoard/loansManagement", (req, res) => {
   const rol = req.session.data;
@@ -185,12 +197,16 @@ router.get("/dashBoard/loansManagement", (req, res) => {
   }
 });
 
-router.post("/dashBoard/loansManagement/changeStatus/:username/:id", serviceCustomerManagement.updateStatus)
+router.post(
+  "/dashBoard/loansManagement/changeStatus/:username/:id",
+  serviceCustomerManagement.updateStatus
+);
 
 router.get("/dashBoard/loansHistoryManagement", (req, res) => {
   const rol = req.session.data;
   const username = req.session.username;
-  const customersData = serviceCustomerManagement.getCustomerDataUnique(username);
+  const customersData =
+    serviceCustomerManagement.getCustomerDataUnique(username);
   if (rol) {
     res.render("./customer/loansHistoryManagement", {
       data: rol,
@@ -205,7 +221,8 @@ router.get("/dashBoard/loansHistoryManagement", (req, res) => {
 router.get("/dashBoard/loansPendingManagement", (req, res) => {
   const rol = req.session.data;
   const username = req.session.username;
-  const customersData = serviceCustomerManagement.getCustomerDataUnique(username);
+  const customersData =
+    serviceCustomerManagement.getCustomerDataUnique(username);
   if (rol) {
     res.render("./customer/loansPendingManagement", {
       data: rol,
@@ -216,7 +233,5 @@ router.get("/dashBoard/loansPendingManagement", (req, res) => {
     res.redirect("/");
   }
 });
-
-
 
 module.exports = router;
