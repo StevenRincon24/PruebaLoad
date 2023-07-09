@@ -1,50 +1,50 @@
 {
-    "0": {
-      "name": "as",
-      "author": "as",
-      "genre": "as",
-      "copies": "0",
-      "publication": "2023-07-08",
-      "fine": "2"
-    },
-    "1": {
-      "name": "234",
-      "author": "3232",
-      "genre": "323",
-      "copies": 2,
-      "publication": "2023-07-08",
-      "fine": "3"
-    },
-    "123456": {
-      "name": "asdfg",
-      "author": "dfgh",
-      "genre": "4",
-      "copies": "6",
-      "publication": "2023-07-08",
-      "fine": "2345"
-    },
-    "123123123": {
-      "name": "asdfgh",
-      "author": "sdfg",
-      "genre": "sedfgh",
-      "copies": "4",
-      "publication": "2023-07-08",
-      "fine": "11111"
-    },
-    "123456789": {
-      "name": "sdfghjnm,",
-      "author": "dfgj",
-      "genre": "sdfghj",
-      "copies": 33,
-      "publication": "2023-07-07",
-      "fine": "11111"
-    },
-    "wer": {
-      "name": "sdfg",
-      "author": "dsfg",
-      "genre": "dfgfg",
-      "copies": 44,
-      "publication": "2023-07-08",
-      "fine": "324"
-    }
+  "0": {
+    "name": "as",
+    "author": "as",
+    "genre": "as",
+    "copies": "0",
+    "publication": "2023-07-08",
+    "fine": "2"
+  },
+  "1": {
+    "name": "234",
+    "author": "3232",
+    "genre": "323",
+    "copies": 2,
+    "publication": "2023-07-08",
+    "fine": "3"
+  },
+  "123456": {
+    "name": "asdfg",
+    "author": "dfgh",
+    "genre": "4",
+    "copies": "6",
+    "publication": "2023-07-08",
+    "fine": "2345"
+  },
+  "123123123": {
+    "name": "asdfgh",
+    "author": "sdfg",
+    "genre": "sedfgh",
+    "copies": "4",
+    "publication": "2023-07-08",
+    "fine": "11111"
+  },
+  "123456789": {
+    "name": "sdfghjnm,",
+    "author": "dfgj",
+    "genre": "sdfghj",
+    "copies": 33,
+    "publication": "2023-07-07",
+    "fine": "11111"
+  },
+  "wer": {
+    "name": "sdfg",
+    "author": "dsfg",
+    "genre": "dfgfg",
+    "copies": 44,
+    "publication": "2023-07-08",
+    "fine": "324"
   }
+}
