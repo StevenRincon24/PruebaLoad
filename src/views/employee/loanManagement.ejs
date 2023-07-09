@@ -167,24 +167,35 @@
                                             <th>End Date</th>
                                             <th>Loan State</th>
                                             <th>Actions</th>
-                                          </tr>
+                                        </tr>
                                     </thead>
                                     <tbody class="text-center align-middle" style="background-color: #F9F9F9">
-                                        <% customers.forEach((customer) => {
+                                        <% customers.forEach((customer)=> {
                                             customer.loans.forEach((loan) => { %>
-                                                <% if(loan.state){%>
-                                              <tr>
-                                                    <td><%= loan.id%></td>
-                                                    <td><%= customer.username %></td>
-                                                    <td><%= loan.isbn %></td>
-                                                    <td><%= loan.startDate %></td>
-                                                    <td><%= loan.endDate %></td>
+                                            <% if(loan.state){%>
+                                                <tr>
+                                                    <td>
+                                                        <%= loan.id%>
+                                                    </td>
+                                                    <td>
+                                                        <%= customer.username %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.isbn %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.startDate %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.endDate %>
+                                                    </td>
                                                     <td>Active</td>
-                                                    <td><button class="btn btn-danger" onclick="changeStatus('<%= customer.username %>', '<%= loan.id %>')">Change state</button></td>
-                                              </tr>
-                                              <%}%>
-                                            <% });
-                                          }); %>
+                                                    <td><button class="btn btn-danger"
+                                                            onclick="changeStatus('<%= customer.username %>', '<%= loan.id %>')">Change
+                                                            state</button></td>
+                                                </tr>
+                                                <%}%>
+                                                    <% }); }); %>
                                     </tbody>
                                 </table>
                             </div>
@@ -231,26 +242,26 @@
         </div>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
-            function changeStatus(username, id){
+            function changeStatus(username, id) {
                 fetch(`/dashBoard/loansManagement/changeStatus/${username}/${id}`, {
                     method: 'POST'
                 }).then(response => {
-                            if (response.ok) {
-                                swal("The status whas changed succesfully", {
-                                    icon: "success",
-                                }).then(() => {
-                                    window.location.href = "/dashBoard/loansManagement"
-                                });
-                            } else {
-                                swal("Error changing status", {
-                                    icon: "error",
-                                }).catch(error => {
-                                    swal("Error changing status", {
-                                        icon: "error",
-                                    });
-                                })
-                                }
-                            })
+                    if (response.ok) {
+                        swal("The status whas changed succesfully", {
+                            icon: "success",
+                        }).then(() => {
+                            window.location.href = "/dashBoard/loansManagement"
+                        });
+                    } else {
+                        swal("Error changing status", {
+                            icon: "error",
+                        }).catch(error => {
+                            swal("Error changing status", {
+                                icon: "error",
+                            });
+                        })
+                    }
+                })
             }
         </script>
 </body>

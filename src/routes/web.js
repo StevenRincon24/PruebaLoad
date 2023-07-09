@@ -110,6 +110,7 @@ router.post(
   "/dashboard/registerEmployee/register",
   serviceEmployeeManagement.registerEmployee
 );
+
 router.delete(
   "/dashboard/customersManagement/delete/:username",
   serviceCustomerManagement.deleteCustomer
@@ -228,6 +229,16 @@ router.get("/dashBoard/loansPendingManagement", (req, res) => {
 router.post(
   "/dashBoard/loansManagement/changeStatus/:username/:id",
   serviceCustomerManagement.updateStatus
+);
+
+router.post(
+  "/dashboard/customersManagement/edit",
+  serviceCustomerManagement.updateCustomer
+);
+
+router.post(
+  "/dashboard/registerCustomer/register",
+  serviceCustomerManagement.registerCustomer
 );
 
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
