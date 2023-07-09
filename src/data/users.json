@@ -26,6 +26,17 @@
           "state": true
         }
       ]
+    },
+    "hovar.rincon@uptc.edu.co": {
+      "password": "1234",
+      "rol": "customer",
+      "name": "Hovar Steven ",
+      "lastName": "Rincon Viancha",
+      "documentType": "Citizenship card",
+      "documentNumber": "1053587859",
+      "cellphone": "3118617677",
+      "address": "Sogamoso",
+      "birthday": "1998-11-24"
     }
   }
 }
