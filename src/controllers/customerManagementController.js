@@ -99,6 +99,7 @@ const registerLoan = (username, ISBN) => {
       dataBook[ISBN].copies--;
 
       data.usuarios[username].loans.push({
+        id: username+currentDate,
         isbn: ISBN,
         startDate: startDateString,
         endDate: endDateString,
@@ -127,10 +128,40 @@ const registerLoan = (username, ISBN) => {
   });
 }
 
+const updateStatus = (username, id) => {
+  return new Promise((resolve, reject) => {
+    const user = data.usuarios[username]
+    let loanToUpdate = null
+
+    for (const loan of user.loans) {
+      if (loan.id === id) {
+        loanToUpdate = loan
+        break
+      }
+    }
+
+    if (loanToUpdate) {
+      loanToUpdate.state = false;
+      const newContent = JSON.stringify(data, null, 2)
+
+      fs.writeFile(filePath, newContent, (err) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(user)
+        }
+      })
+    } else {
+      reject(new Error('Loan not found'));
+    }
+  })
+}
+
 module.exports ={
     getCustomerData,
     registerCustomer,
     deleteCustomer,
     updateCustomer,
-    registerLoan
+    registerLoan,
+    updateStatus
 }

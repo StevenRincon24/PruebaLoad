@@ -57,10 +57,26 @@ const registerLoan = (req, res) =>{
       });
 }
 
+const updateStatus = (req, res) => {
+  const username = req.params.username
+  const id = req.params.id
+
+  customerManagementController
+    .updateStatus(username, id)
+    .then(() => {
+      res.redirect("/dashBoard/loansManagement");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect("/dashBoard/loansManagement");
+    });
+};
+
 module.exports = {
     getCustomerData,
     registerCustomer,
     deleteCustomer,
     updateCustomer,
-    registerLoan
+    registerLoan,
+    updateStatus
 }

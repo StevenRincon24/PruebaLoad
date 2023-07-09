@@ -20,16 +20,18 @@
       "birthday": "2001-08-17",
       "loans": [
         {
+          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 21:31:48 GMT-0500 (hora estándar de Colombia)",
           "isbn": "112",
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
-          "state": true
+          "state": false
         },
         {
-          "isbn": "123123",
+          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 21:50:35 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "112",
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
-          "state": true
+          "state": false
         }
       ]
     },
@@ -43,7 +45,15 @@
       "cellphone": "3118617677",
       "address": "Sogamoso",
       "birthday": "1998-11-24",
-      "loans": []
+      "loans": [
+        {
+          "id": "hovar.rincon@uptc.edu.coSat Jul 08 2023 21:49:35 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "123123",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": false
+        }
+      ]
     }
   }
 }

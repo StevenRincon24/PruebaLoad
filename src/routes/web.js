@@ -167,6 +167,8 @@ router.get("/dashBoard/loansManagement", (req, res) => {
   }
 });
 
+router.post("/dashBoard/loansManagement/changeStatus/:username/:id", serviceCustomerManagement.updateStatus)
+
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 
