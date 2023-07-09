@@ -100,6 +100,17 @@
       "cellphone": "1234567890",
       "address": "Nobsa",
       "birthday": "1998-11-24"
+    },
+    "admin1@gmail.com": {
+      "password": "1234",
+      "rol": "employee",
+      "name": "TEST EMPLOYEE",
+      "lastName": "TEST EMPLOYEE LAST",
+      "documentType": "Citizenship card",
+      "documentNumber": "000000000",
+      "cellphone": "3118617677",
+      "address": "Nobsa",
+      "birthday": "1998-11-24"
     }
   }
 }

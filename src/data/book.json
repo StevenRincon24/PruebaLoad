@@ -49,9 +49,9 @@
   },
   "123456789": {
     "name": "sdfghjnm,",
-    "author": "dfgj",
+    "author": "dfgj111",
     "genre": "sdfghj",
-    "copies": 31,
+    "copies": "31",
     "publication": "2023-07-07",
     "fine": "11111"
   },
@@ -62,5 +62,37 @@
     "copies": 43,
     "publication": "2023-07-08",
     "fine": "324"
+  },
+  "000000": {
+    "name": "Cien años de soledad",
+    "author": "Garcia Marquez",
+    "genre": "Drama",
+    "copies": "3",
+    "publication": "1984-11-11",
+    "fine": "111121"
+  },
+  "0000": {
+    "name": "TEST 11",
+    "author": "TEST A",
+    "genre": "TEST G",
+    "copies": "7",
+    "publication": "1998-11-11",
+    "fine": "100000"
+  },
+  "9999999999": {
+    "name": "TEST 111",
+    "author": "TEST A1",
+    "genre": "TEST G1",
+    "copies": "1",
+    "publication": "1998-11-11",
+    "fine": "11111111"
+  },
+  "0000000000": {
+    "name": "test 2",
+    "author": "test 2",
+    "genre": "test 2",
+    "copies": "2",
+    "publication": "1998-11-22",
+    "fine": "99999"
   }
 }

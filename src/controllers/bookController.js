@@ -19,7 +19,6 @@ const addBook = (ISBN, name, author, genre, copies, publication, fine) => {
         reject(err);
         return;
       }
-
       let books = JSON.parse(data);
 
       const newBookData = {
@@ -30,7 +29,7 @@ const addBook = (ISBN, name, author, genre, copies, publication, fine) => {
         publication,
         fine,
       };
-      const newIndex = Object.keys(books).length.toString();
+      const newIndex = ISBN;
 
       books[newIndex] = newBookData;
 

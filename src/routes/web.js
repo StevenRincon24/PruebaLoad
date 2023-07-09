@@ -17,7 +17,6 @@ router.get("/admin", (req, res) => {
 
 router.post("/login/validateUser", service.validateLogin);
 
-
 router.get("/dashBoard", (req, res) => {
   req.session = req.session || {};
   const rol = req.session.data;
@@ -111,6 +110,7 @@ router.post(
   "/dashboard/registerEmployee/register",
   serviceEmployeeManagement.registerEmployee
 );
+
 router.delete(
   "/dashboard/customersManagement/delete/:username",
   serviceCustomerManagement.deleteCustomer

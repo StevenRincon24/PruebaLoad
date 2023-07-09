@@ -7,22 +7,14 @@ const getBookData = () => {
 
 const createBook = (req, res) => {
   const { ISBN, name, author, genre, copies, publication, fine } = req.body;
-  const book = bookController.addBook(
-    ISBN,
-    name,
-    author,
-    genre,
-    copies,
-    publication,
-    fine
-  );
-  if (book) {
-    console.log("book true");
-    res.redirect("/dashBoard/bookManagement");
-  } else {
-    console.log("book false");
-    res.redirect("/dashBoard/createBookManagement");
-  }
+  const book = bookController
+    .addBook(ISBN, name, author, genre, copies, publication, fine)
+    .then((Book) => {
+      res.redirect("/dashBoard/bookManagement");
+    })
+    .catch((err) => {
+      res.redirect("/book/createBook");
+    });
 };
 const deleteBook = (req, res) => {
   const ISBN = req.params.id;
