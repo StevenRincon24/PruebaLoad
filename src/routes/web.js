@@ -17,6 +17,7 @@ router.get("/admin", (req, res) => {
 
 router.post("/login/validateUser", service.validateLogin);
 
+
 router.get("/dashBoard", (req, res) => {
   req.session = req.session || {};
   const rol = req.session.data;

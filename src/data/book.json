@@ -15,6 +15,22 @@
     "publication": "2023-07-08",
     "fine": "3"
   },
+  "6": {
+    "name": "Cien años de soledad",
+    "author": "Garcia Marquez",
+    "genre": "Drama",
+    "copies": "4",
+    "publication": "1967-11-11",
+    "fine": "10000"
+  },
+  "7": {
+    "name": "Cien años de soledad",
+    "author": "Gabriel Garcia Marquez",
+    "genre": "Drama",
+    "copies": "5",
+    "publication": "1998-11-23",
+    "fine": "100000"
+  },
   "123456": {
     "name": "asdfg",
     "author": "dfgh",

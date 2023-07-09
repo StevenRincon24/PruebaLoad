@@ -89,6 +89,17 @@
           "state": true
         }
       ]
+    },
+    "hovar@gmail.com": {
+      "password": "1234",
+      "rol": "employee",
+      "name": "Hovar Steven ",
+      "lastName": "Rincon Viancha",
+      "documentType": "Citizenship card",
+      "documentNumber": "123456789",
+      "cellphone": "1234567890",
+      "address": "Nobsa",
+      "birthday": "1998-11-24"
     }
   }
 }
