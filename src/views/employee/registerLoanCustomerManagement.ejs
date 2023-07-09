@@ -159,23 +159,28 @@
                                         <div class="row">
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                  <label>Customer username</label>
-                                                  <select class="form-select form-control" name="username" required>
-                                                    <option value="" selected disabled>Select username</option>
-                                                    <% customers.forEach(function(customer) { %>
-                                                      <option value="<%= customer.username %>"><%= customer.username %></option>
-                                                    <% }); %>
-                                                  </select>
+                                                    <label>Customer username</label>
+                                                    <select class="form-select form-control" name="username" required>
+                                                        <option value="" selected disabled>Select username</option>
+                                                        <% customers.forEach(function(customer) { %>
+                                                            <option value="<%= customer.username %>">
+                                                                <%= customer.username %>
+                                                            </option>
+                                                            <% }); %>
+                                                    </select>
                                                 </div>
-                                              </div>                                              
+                                            </div>
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
                                                     <label>ISBN</label>
                                                     <select class="form-select form-control" name="ISBN" required>
                                                         <option value="" selected disabled>Select ISBN</option>
                                                         <% bookData.forEach(function(book) { %>
-                                                            <option value="<%= book.id %>"><%= book.id %></option>
-                                                          <% }); %>
+                                                            <option value="<%= book.id %>">
+                                                                <%= book.id %>
+                                                                    <%= book.name %>
+                                                            </option>
+                                                            <% }); %>
                                                     </select>
                                                 </div>
                                             </div>

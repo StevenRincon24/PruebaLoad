@@ -24,12 +24,6 @@
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
           "state": true
-        },
-        {
-          "isbn": "123123",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
-          "state": true
         }
       ]
     },
@@ -52,6 +46,12 @@
         },
         {
           "isbn": "1",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        },
+        {
+          "isbn": "123456789",
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
           "state": true
