@@ -43,7 +43,20 @@
       "cellphone": "3118617677",
       "address": "Sogamoso",
       "birthday": "1998-11-24",
-      "loans": []
+      "loans": [
+        {
+          "isbn": "wer",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        },
+        {
+          "isbn": "1",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        }
+      ]
     }
   }
 }
