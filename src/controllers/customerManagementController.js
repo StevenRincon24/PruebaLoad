@@ -1,7 +1,9 @@
 const data = require('../data/users.json')
+const dataBook = require("../data/book.json");
 const fs = require("fs");
 const path = require("path");
 const filePath = path.join(__dirname, "../data/users.json");
+const filePath2 = path.join(__dirname, "../data/book.json");
 
 const getCustomerData = () =>{
     const customers = Object.keys(data.usuarios)
@@ -87,26 +89,42 @@ const updateCustomer = (name, lastName, documentType, documentNumber, birthday, 
 
 const registerLoan = (username, ISBN) => {
   return new Promise((resolve, reject) => {
-      const currentDate = new Date()
-      const endDate = new Date(currentDate)
-      endDate.setDate(currentDate.getDate() + 8)
-      const startDateString = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
-      const endDateString = `${endDate.getFullYear()}-${(endDate.getMonth() + 1).toString().padStart(2, '0')}-${endDate.getDate().toString().padStart(2, '0')}`;
+    const currentDate = new Date();
+    const endDate = new Date(currentDate);
+    endDate.setDate(currentDate.getDate() + 8);
+    const startDateString = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    const endDateString = `${endDate.getFullYear()}-${(endDate.getMonth() + 1).toString().padStart(2, '0')}-${endDate.getDate().toString().padStart(2, '0')}`;
+
+    if (dataBook[ISBN].copies > 0) {
+      dataBook[ISBN].copies--;
+
       data.usuarios[username].loans.push({
         isbn: ISBN,
         startDate: startDateString,
         endDate: endDateString,
         state: true
-      })
-      const newContent = JSON.stringify(data, null, 2);
-      fs.writeFile(filePath, newContent, (err) => {
-          if (err) {
-              reject(err)
-          } else {
-              resolve()
-          }
-      })
-  })
+      });
+
+      const newContentUsers = JSON.stringify(data, null, 2);
+      const newContentBooks = JSON.stringify(dataBook, null, 2);
+
+      fs.writeFile(filePath, newContentUsers, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          fs.writeFile(filePath2, newContentBooks, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
+        }
+      });
+    } else {
+      reject("No hay copias disponibles de este libro");
+    }
+  });
 }
 
 module.exports ={

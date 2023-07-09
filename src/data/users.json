@@ -20,7 +20,13 @@
       "birthday": "2001-08-17",
       "loans": [
         {
-          "isbn": "123",
+          "isbn": "112",
+          "startDate": "2023-07-08",
+          "endDate": "2023-07-16",
+          "state": true
+        },
+        {
+          "isbn": "123123",
           "startDate": "2023-07-08",
           "endDate": "2023-07-16",
           "state": true
@@ -36,7 +42,8 @@
       "documentNumber": "1053587859",
       "cellphone": "3118617677",
       "address": "Sogamoso",
-      "birthday": "1998-11-24"
+      "birthday": "1998-11-24",
+      "loans": []
     }
   }
 }

@@ -160,46 +160,35 @@
                                 <table id="tableCustomers" class="table table-striped table-bordered border-dark">
                                     <thead class="text-center" style="background: #000000; color: black">
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Last Name</th>
-                                            <th>Document Type</th>
-                                            <th>Document Number</th>
-                                            <th>Celphone Number</th>
-                                            <th>Address</th>
-                                            <th>Birthday</th>
+                                            <th>Username</th>
+                                            <th>Loan ISBN</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Loan State</th>
                                             <th>Actions</th>
-                                        </tr>
+                                          </tr>
                                     </thead>
                                     <tbody class="text-center align-middle" style="background-color: #F9F9F9">
-                                        <% customers.forEach(function(customer) { %>
-                                            <tr>
-                                                <td>
-                                                    <%= customer.name %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.lastName %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.documentType %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.documentNumber %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.cellphone %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.address %>
-                                                </td>
-                                                <td>
-                                                    <%= customer.birthday %>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" onclick="deleteUser('<%= customer.username %>')">Delete</button>
-                                                    <button class="btn btn-primary" onclick="editUser('<%- encodeURIComponent(JSON.stringify(customer)) %>')" data-toggle="modal" data-target="#editModal">Edit</button>
-                                                </td>
-                                            </tr>
-                                            <% }) %>
+                                        <% customers.forEach((customer) => {
+                                            customer.loans.forEach((loan) => { %>
+                                              <tr>
+                                                <td><%= customer.username %></td>
+                                                <td><%= loan.isbn %></td>
+                                                <td><%= loan.startDate %></td>
+                                                <td><%= loan.endDate %></td>
+                                                <% if(loan.state){%>
+                                                    <td>Active</td>
+                                                <%}else{%>
+                                                    <td>inactive</td>
+                                                <%}%>
+                                                <% if(loan.state){%>
+                                                    <td><button class="btn btn-danger">Change state</button></td>
+                                                <%}else{%>
+                                                    <td><button class="btn btn-danger" disabled>Change state</button></td>
+                                                <%}%>
+                                              </tr>
+                                            <% });
+                                          }); %>
                                     </tbody>
                                 </table>
                             </div>

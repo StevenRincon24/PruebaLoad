@@ -2,7 +2,6 @@ const bookController = require("../controllers/bookController");
 
 const getBookData = () => {
   const bookData = bookController.getBookData();
-  console.log(bookData);
   return bookData;
 };
 
