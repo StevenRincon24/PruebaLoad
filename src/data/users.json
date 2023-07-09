@@ -13,7 +13,14 @@
     },
     "ivan@gmail.com": {
       "password": "321321321",
-      "rol": "employee"
+      "rol": "employee",
+      "name": "Carlos Andres",
+      "lastName": "Sierra Espinel",
+      "documentType": "Citizenship card",
+      "documentNumber": "100751234",
+      "cellphone": "3232510960",
+      "address": "Vereda la playita sogamoso",
+      "birthday": "2001-08-17"
     },
     "andres.sierra03@uptc.edu.co": {
       "password": "321321321",
