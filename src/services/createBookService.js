@@ -7,7 +7,7 @@ const getBookData = () => {
 
 const createBook = (req, res) => {
   const { ISBN, name, author, genre, copies, publication, fine } = req.body;
-  const book = bookController
+  bookController
     .addBook(ISBN, name, author, genre, copies, publication, fine)
     .then((Book) => {
       res.redirect("/dashBoard/bookManagement");

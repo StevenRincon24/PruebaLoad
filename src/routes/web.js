@@ -51,6 +51,7 @@ router.get("/dashBoard/EmployeeManagement", (req, res) => {
 
 router.get("/dashBoard/customersManagement", (req, res) => {
   const rol = req.session.data;
+  console.log(rol);
   const username = req.session.username;
   const customersData = serviceCustomerManagement.getCustomerData();
   if (rol) {
@@ -65,8 +66,8 @@ router.get("/dashBoard/customersManagement", (req, res) => {
 });
 
 router.get("/dashBoard/bookManagement", (req, res) => {
-  req.session = req.session || {};
   const rol = req.session.data;
+  console.log(rol);
   const username = req.session.username;
   const bookData = serviceBook.getBookData();
   if (rol) {
@@ -106,20 +107,6 @@ router.get("/dashboard/registerEmployee", (req, res) => {
   }
 });
 
-router.post(
-  "/dashboard/registerEmployee/register",
-  serviceEmployeeManagement.registerEmployee
-);
-
-router.delete(
-  "/dashboard/customersManagement/delete/:username",
-  serviceCustomerManagement.deleteCustomer
-);
-router.post(
-  "/dashboard/customersManagement/edit",
-  serviceCustomerManagement.updateCustomer
-);
-
 router.get("/dashBoard/createBookManagement", (req, res) => {
   req.session = req.session || {};
   const rol = req.session.data;
@@ -147,8 +134,6 @@ router.get("/dashBoard/createEmployee", (req, res) => {
     res.redirect("/");
   }
 });
-
-router.post("/book/createBook", serviceBook.createBook);
 
 router.get("/dashboard/registerLoan", (req, res) => {
   const rol = req.session.data;
@@ -181,19 +166,6 @@ router.get("/dashBoard/loansHistoryManagement", (req, res) => {
     res.redirect("/");
   }
 });
-router.post(
-  "/dashboard/registerLoan/register",
-  serviceCustomerManagement.registerLoan
-);
-
-router.post(
-  "/dashboard/employeeManagement/edit",
-  serviceEmployeeManagement.updateEmployee
-);
-router.delete(
-  "/dashboard/employeeManagement/delete/:username",
-  serviceEmployeeManagement.deleteEmployee
-);
 
 router.get("/dashBoard/loansManagement", (req, res) => {
   const rol = req.session.data;
@@ -241,6 +213,31 @@ router.post(
   serviceCustomerManagement.registerCustomer
 );
 
+router.post(
+  "/dashboard/registerEmployee/register",
+  serviceEmployeeManagement.registerEmployee
+);
+
+router.delete(
+  "/dashboard/customersManagement/delete/:username",
+  serviceCustomerManagement.deleteCustomer
+);
+
+router.post(
+  "/dashboard/registerLoan/register",
+  serviceCustomerManagement.registerLoan
+);
+
+router.post(
+  "/dashboard/employeeManagement/edit",
+  serviceEmployeeManagement.updateEmployee
+);
+router.delete(
+  "/dashboard/employeeManagement/delete/:username",
+  serviceEmployeeManagement.deleteEmployee
+);
+
+router.post("/book/createBook", serviceBook.createBook);
 router.delete("/dashboard/booksManagement/delete/:id", serviceBook.deleteBook);
 router.post("/dashboard/bookManagement/edit", serviceBook.updateBook);
 module.exports = router;

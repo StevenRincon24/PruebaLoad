@@ -1,36 +1,4 @@
 {
-  "0": {
-    "name": "as",
-    "author": "as",
-    "genre": "as",
-    "copies": "0",
-    "publication": "2023-07-08",
-    "fine": "2"
-  },
-  "1": {
-    "name": "234",
-    "author": "3232",
-    "genre": "323",
-    "copies": 1,
-    "publication": "2023-07-08",
-    "fine": "3"
-  },
-  "6": {
-    "name": "Cien años de soledad",
-    "author": "Garcia Marquez",
-    "genre": "Drama",
-    "copies": "4",
-    "publication": "1967-11-11",
-    "fine": "10000"
-  },
-  "7": {
-    "name": "Cien años de soledad",
-    "author": "Gabriel Garcia Marquez",
-    "genre": "Drama",
-    "copies": "5",
-    "publication": "1998-11-23",
-    "fine": "100000"
-  },
   "123456": {
     "name": "asdfg",
     "author": "dfgh",
@@ -94,5 +62,13 @@
     "copies": "2",
     "publication": "1998-11-22",
     "fine": "99999"
+  },
+  "000": {
+    "name": "000edit",
+    "author": "000",
+    "genre": "000",
+    "copies": "123",
+    "publication": "1999-11-11",
+    "fine": "000"
   }
 }

@@ -166,21 +166,31 @@
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Loan State</th>
-                                          </tr>
+                                        </tr>
                                     </thead>
                                     <tbody class="text-center align-middle" style="background-color: #F9F9F9">
-                                        <% customer.loans.forEach((loan) => { %>
+                                        <% customer.loans.forEach((loan)=> { %>
                                             <tr>
-                                              <%if(loan.state){%>
-                                                <td><%= loan.id %></td>
-                                                <td><%= customer.username %></td>
-                                                <td><%= loan.isbn %></td>
-                                                <td><%= loan.startDate %></td>
-                                                <td><%= loan.endDate %></td>
-                                                <td>Active</td>
-                                            <%}%> 
+                                                <%if(loan.state){%>
+                                                    <td>
+                                                        <%= loan.id %>
+                                                    </td>
+                                                    <td>
+                                                        <%= customer.username %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.isbn %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.startDate %>
+                                                    </td>
+                                                    <td>
+                                                        <%= loan.endDate %>
+                                                    </td>
+                                                    <td>Active</td>
+                                                    <%}%>
                                             </tr>
-                                          <% }); %>
+                                            <% }); %>
                                     </tbody>
                                 </table>
                             </div>
@@ -188,43 +198,12 @@
                     </div>
                 </div>
                 <!-- endcontent-->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <nav>
-                            <ul class="footer-menu">
-                                <li>
-                                    <a href="#">
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Company
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </li>
-                            </ul>
-                            <p class="copyright text-center">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>
-                                <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                            </p>
-                        </nav>
-                    </div>
-                </footer>
+                <%- include('../templates/footer.ejs')%>
             </div>
         </div>
+        <script>
+            document.write(new Date().getFullYear())
+        </script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 <!--   Core JS Files   -->

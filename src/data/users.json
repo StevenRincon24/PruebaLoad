@@ -2,7 +2,7 @@
   "usuarios": {
     "ivan@gmail.com": {
       "password": "321321321",
-      "rol": "employee",
+      "rol": "admin",
       "name": "Carlos Andres",
       "lastName": "Sierra Espinel",
       "documentType": "Citizenship card",
@@ -11,60 +11,16 @@
       "address": "Vereda la playita sogamoso",
       "birthday": "2001-08-17"
     },
-    "andres.sierra03@uptc.edu.co": {
-      "password": "321321321",
-      "rol": "customer",
-      "name": "arturo",
-      "lastName": "Sierra Espinel",
+    "admin@gmail.com": {
+      "password": "admin",
+      "rol": "admin",
+      "name": "Administrador",
+      "lastName": "Administrador",
       "documentType": "Citizenship card",
-      "documentNumber": "1007751451",
-      "cellphone": "3232510960",
-      "address": "Vereda la playita sogamoso",
-      "birthday": "2001-08-17",
-      "loans": [
-        {
-          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 21:31:48 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "112",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
-          "state": false
-        },
-        {
-          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 21:50:35 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "112",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
-          "state": false
-        },
-        {
-          "id": "andres.sierra03@uptc.edu.coSat Jul 08 2023 22:08:07 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "123123123",
-          "startDate": "2023-07-08",
-          "endDate": "2023-07-16",
-          "state": false
-        },
-        {
-          "id": "andres.sierra03@uptc.edu.coSun Jul 09 2023 08:12:08 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "123456789",
-          "startDate": "2023-07-09",
-          "endDate": "2023-07-17",
-          "state": true
-        },
-        {
-          "id": "andres.sierra03@uptc.edu.coSun Jul 09 2023 17:49:02 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "9999999999",
-          "startDate": "2023-07-09",
-          "endDate": "2023-07-17",
-          "state": true
-        },
-        {
-          "id": "hovar.rincon@uptc.edu.coSun Jul 09 2023 17:20:01 GMT-0500 (hora estándar de Colombia)",
-          "isbn": "1",
-          "startDate": "2023-07-09",
-          "endDate": "2023-07-17",
-          "state": true
-        }
-      ]
+      "documentNumber": "1234567890",
+      "cellphone": "1234567890",
+      "address": "Sogamoso",
+      "birthday": "2001-08-17"
     },
     "hovar@gmail.com": {
       "password": "1234",
@@ -80,7 +36,7 @@
     "admin1@gmail.com": {
       "password": "1234",
       "rol": "employee",
-      "name": "TEST EMPLOYEE",
+      "name": "TEST EMPLOYEE 1",
       "lastName": "TEST EMPLOYEE LAST",
       "documentType": "Citizenship card",
       "documentNumber": "000000000",

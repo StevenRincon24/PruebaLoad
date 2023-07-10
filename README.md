@@ -6,19 +6,21 @@ Este proyecto es un software desarrollado en Node.js con el framework Express y 
 
 - Inicialmente utilizar el comando npm i para instalar las dependencias necesarias para el funcionamiento del sistema.
 - Algunas de las dependencias utilizadas son:
-    - "ejs": "^3.1.9",
-    - "express": "^4.18.2",
-    - "express-session": "^1.17.3",
-    - "method-override": "^3.0.0",
-    - "sweetalert2": "^11.7.12"
+  - "ejs": "^3.1.9",
+  - "express": "^4.18.2",
+  - "express-session": "^1.17.3",
+  - "method-override": "^3.0.0",
+  - "sweetalert2": "^11.7.12"
 - Para el correcto funcionamiento del sistema, hay que desplegarlo de la siguiente manera:
-    - npm run start:prod
+  - npm run start:prod
 - El sistema se desplegará sobre el puerto **4000**.
 
 ## Contexto
+
 La biblioteca municipal es administrada por una persona encargada de gestionar los empleados y los libros disponibles. A continuación se detallan los principales elementos a tener en cuenta:
 
 ## Empleados
+
 Los empleados de la biblioteca son registrados y gestionados mediante el sistema. Cada empleado tiene la siguiente información asociada:
 
 - Nombres
@@ -52,9 +54,11 @@ Los empleados registrados podrán iniciar sesión en el sistema y realizar prés
 - Además, los empleados también podrán recibir los libros prestados y cambiar el estado del préstamo a "terminado" cuando los usuarios devuelvan los libros.
 
 ## Usuarios
+
 Los usuarios registrados podrán iniciar sesión en el sistema y acceder a sus préstamos activos y su historial de libros solicitados. Esto les permitirá verificar si tienen multas pendientes.
 
 ## Requisitos de Instalación
+
 Para instalar y ejecutar el proyecto localmente, se deben seguir los siguientes pasos:
 
 - Clonar este repositorio: git clone <URL del repositorio>
@@ -78,6 +82,7 @@ Para instalar y ejecutar el proyecto localmente, se deben seguir los siguientes 
 - **package.json**: El archivo de configuración del proyecto que contiene las dependencias, scripts y otra información relevante.
 
 ## Dependencias principales
+
 El proyecto utiliza las siguientes dependencias principales:
 
 - Express: Framework web rápido y minimalista para Node.js.
@@ -86,3 +91,7 @@ El proyecto utiliza las siguientes dependencias principales:
 ## Consideraciones finales
 
 Este proyecto es de carácter acádemico para poner en práctica los conocimientos adquiridos durante el desarrollo de las primeras semanas del curso de desarrollo de software - Electiva II.
+Realizado por:
+
+- Andrés Iván Sierra Espinel
+- Hovar Steven Rincón Vianchá
