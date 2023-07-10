@@ -3,7 +3,7 @@
     "name": "Cien años de soledad",
     "author": "Gabriel Garcia Marquez",
     "genre": "Relato",
-    "copies": "5",
+    "copies": 4,
     "publication": "1967-01-05",
     "fine": "10000"
   },
@@ -11,7 +11,7 @@
     "name": "El coronel no tiene quien le escriba",
     "author": "Gabriel Garcia Marquez",
     "genre": "Ficcion",
-    "copies": "10",
+    "copies": "3",
     "publication": "1961-01-01",
     "fine": "4000"
   },
@@ -27,7 +27,7 @@
     "name": "Cronica de una muerte anunciada",
     "author": "Gabriel Garcia Marquez",
     "genre": "Novela",
-    "copies": "3",
+    "copies": 2,
     "publication": "1981-01-01",
     "fine": "5000"
   },

@@ -9,7 +9,16 @@
       "documentNumber": "100751234",
       "cellphone": "3216515",
       "address": "Vereda la playita sogamoso",
-      "birthday": "2001-08-17"
+      "birthday": "2001-08-17",
+      "loans": [
+        {
+          "id": "ivan@gmail.comSun Jul 09 2023 20:32:51 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "1234",
+          "startDate": "2023-07-09",
+          "endDate": "2023-07-17",
+          "state": false
+        }
+      ]
     },
     "admin@gmail.com": {
       "password": "admin",
@@ -22,7 +31,7 @@
       "address": "Sogamoso",
       "birthday": "2001-08-17"
     },
-    "hovar@gmail.com": {
+    "employee@gmail.com": {
       "password": "1234",
       "rol": "employee",
       "name": "Hovar Steven ",
@@ -33,16 +42,25 @@
       "address": "Nobsa",
       "birthday": "1998-11-24"
     },
-    "employee@gmail.com": {
-      "password": "1234",
-      "rol": "employee",
-      "name": "TEST EMPLOYEE 1",
-      "lastName": "TEST EMPLOYEE LAST",
+    "juansuarez@gmail.com": {
+      "password": "customer1",
+      "rol": "customer",
+      "name": "Juan",
+      "lastName": "Suarez",
       "documentType": "Citizenship card",
-      "documentNumber": "000000000",
-      "cellphone": "3118617677",
-      "address": "Nobsa",
-      "birthday": "1998-11-24"
+      "documentNumber": "1234567890",
+      "cellphone": "3119862153",
+      "address": "Sogamoso",
+      "birthday": "1999-11-11",
+      "loans": [
+        {
+          "id": "juansuarez@gmail.comSun Jul 09 2023 20:32:07 GMT-0500 (hora estándar de Colombia)",
+          "isbn": "5678",
+          "startDate": "2023-07-09",
+          "endDate": "2023-07-17",
+          "state": true
+        }
+      ]
     }
   }
 }
