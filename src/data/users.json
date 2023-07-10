@@ -2,7 +2,7 @@
   "usuarios": {
     "ivan@gmail.com": {
       "password": "321321321",
-      "rol": "admin",
+      "rol": "customer",
       "name": "Carlos Andres",
       "lastName": "Sierra Espinel",
       "documentType": "Citizenship card",
@@ -33,7 +33,7 @@
       "address": "Nobsa",
       "birthday": "1998-11-24"
     },
-    "admin1@gmail.com": {
+    "employee@gmail.com": {
       "password": "1234",
       "rol": "employee",
       "name": "TEST EMPLOYEE 1",
