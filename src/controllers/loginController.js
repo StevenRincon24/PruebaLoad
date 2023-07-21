@@ -1,4 +1,4 @@
-const User = require('../models/User'); // Asegúrate de importar correctamente el modelo
+const User = require('../models/User');
 
 const validateLogin = async (username, password) => {
   try {
@@ -29,7 +29,6 @@ const validateLogin = async (username, password) => {
       return null;
     }
   } catch (error) {
-    console.error('Error during login validation:', error);
     return null;
   }
 };

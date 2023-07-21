@@ -1,19 +1,22 @@
-const data = require("../data/users.json");
-const fs = require("fs");
-const path = require("path");
-const filePath = path.join(__dirname, "../data/users.json");
+const User = require('../models/User')
 
-const getEmployeeData = () => {
-  const employees = Object.keys(data.usuarios)
-    .filter((usuario) => data.usuarios[usuario].rol === "employee")
-    .map((username) => ({
-      username,
-      ...data.usuarios[username],
-    }));
-  return employees;
-};
+const getEmployeeData = async () => {
+  try {
+    const employees = await User.find({ 'employee.rol': 'employee' });
+    const formattedEmployees = employees.map((user) => {
+      const { email, employee } = user;
+      return {
+        username: email,
+        ...employee._doc,
+      };
+    });
+    return formattedEmployees;
+  } catch (error) {
+    return [];
+  }
+}
 
-const registerEmployee = (
+const registerEmployee = async (
   name,
   lastName,
   documentType,
@@ -21,66 +24,30 @@ const registerEmployee = (
   birthday,
   cellphone,
   address,
-  username,
+  email,
   password
 ) => {
-  const rol = "employee";
-  const newUser = username;
-  const newUserData = {
-    password,
-    rol,
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    cellphone,
-    address,
-    birthday,
-  };
-
-  const currentDate = new Date();
-  const minimumAge = 18; // Edad mínima requerida en años
-
-  const ageDifference = currentDate - new Date(birthday);
-
-  const ageInYears = ageDifference / (1000 * 60 * 60 * 24 * 365.25);
-
-  if (ageInYears < minimumAge) {
-    return Promise.reject(new Error("El empleado debe ser mayor de edad."));
-  }
-
-  return new Promise((resolve, reject) => {
-    data.usuarios[newUser] = newUserData;
-    const newContent = JSON.stringify(data, null, 2);
-    fs.writeFile(filePath, newContent, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(newUserData);
+  try {
+    await User.create({
+      email: email,
+      employee: {
+        password: password,
+        rol: "employee",
+        name: name,
+        lastName: lastName,
+        documentType: documentType,
+        documentNumber: documentNumber,
+        cellphone: cellphone,
+        address: address,
+        birthday: birthday
       }
     });
-  });
-};
+  } catch (error) {
+    throw error
+  }
+}
 
-const deleteEmployee = (username) => {
-  return new Promise((resolve, reject) => {
-    if (data.usuarios.hasOwnProperty(username)) {
-      delete data.usuarios[username];
-      const newContent = JSON.stringify(data, null, 2);
-      fs.writeFile(filePath, newContent, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    } else {
-      reject(new Error("El empleado no está registrado"));
-    }
-  });
-};
-
-const updateEmployee = (
+const updateEmployee = async (
   name,
   lastName,
   documentType,
@@ -88,32 +55,43 @@ const updateEmployee = (
   birthday,
   cellphone,
   address,
-  username,
+  email,
   password,
-  rol = "employee"
+  rol
 ) => {
-  const newUserData = {
-    password,
-    rol,
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    cellphone,
-    address,
-    birthday,
-  };
-  return new Promise((resolve, reject) => {
-    data.usuarios[username] = newUserData;
-    const newContent = JSON.stringify(data, null, 2);
-    fs.writeFile(filePath, newContent, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(newUserData);
-      }
-    });
-  });
+  try {
+    const user = await User.findOne({ email: email, 'employee.rol': 'employee' });
+
+    if (user) {
+      user.employee.name = name;
+      user.employee.lastName = lastName;
+      user.employee.documentType = documentType;
+      user.employee.documentNumber = documentNumber;
+      user.employee.birthday = birthday;
+      user.employee.cellphone = cellphone;
+      user.employee.address = address;
+      user.password = password
+      user.employee.rol = rol
+      await user.save();
+    } else {
+      throw new Error("User doesnt exist")
+    }
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteEmployee = async (id) => {
+  try {
+    const user = await User.findByIdAndRemove(id);
+    if (user) {
+      return 
+    } else {
+      throw new Error("User doesnt exist");
+    }
+  } catch (error) { 
+    throw error
+  }
 };
 
 module.exports = {

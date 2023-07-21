@@ -1,86 +1,43 @@
 const EmployeeManagementController = require("../controllers/employeeManagementController");
-const getEmployeeData = () => {
-  const EmployeeData = EmployeeManagementController.getEmployeeData();
-  return EmployeeData;
-};
-
-const registerEmployee = (req, res) => {
-  const {
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    birthday,
-    cellphone,
-    address,
-    username,
-    password,
-  } = req.body;
-
-  EmployeeManagementController.registerEmployee(
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    birthday,
-    cellphone,
-    address,
-    username,
-    password
-  )
-    .then((Employee) => {
-      res.redirect("/dashBoard/employeeManagement");
+const getEmployeeData = async (req, res) => {
+  try {
+    await EmployeeManagementController.getEmployeeData()
+    .then((employees) =>{
+      res.status(200).json({ employees: employees })
     })
-    .catch((err) => {
-      console.error(err);
-      res.redirect("/dashboard/registerEmployee");
-    });
-};
-const deleteEmployee = (req, res) => {
-  const username = req.params.username;
-  console.log(username);
-  EmployeeManagementController.deleteEmployee(username)
-    .then(() => {
-      res.status(200).json({ message: "Register deleted successfully" });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error deleting the register" });
-    });
+  } catch (error) {
+    res.status(500).json({ error: "Error getting employee data" })
+  }
 };
 
-const updateEmployee = (req, res) => {
-  const {
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    birthday,
-    cellphone,
-    address,
-    username,
-    password,
-  } = req.body;
+const registerEmployee = async (req, res) =>{
+    const { email, employee } = req.body
+    try {
+      await EmployeeManagementController.registerEmployee(employee.name, employee.lastName, employee.documentType, employee.documentNumber, employee.birthday, employee.cellphone, employee.address, email, employee.password)
+      res.status(200).json({ message: "Employee registered successfully" })
+    } catch (error) {
+      res.status(500).json({ error: "Error registering the employee" })
+    } 
+}
 
-  EmployeeManagementController.updateEmployee(
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    birthday,
-    cellphone,
-    address,
-    username,
-    password
-  )
-    .then(() => {
-      res.redirect("/dashboard/EmployeeManagement");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.redirect("/dashboard/EmployeeManagement");
-    });
-};
+const updateEmployee = async (req, res) => {
+  const { email, employee } = req.body
+  try {
+    await EmployeeManagementController.updateEmployee(employee.name, employee.lastName, employee.documentType, employee.documentNumber, employee.birthday, employee.cellphone, employee.address, email, employee.password)
+    res.status(200).json({ message: "Employee updated succesfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error updating employee" })
+  }
+}
+
+const deleteEmployee = async (req, res) => { 
+  try {
+    await EmployeeManagementController.deleteEmployee(req.params.id)
+    res.status(200).json({ message: "Employee deleted successfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting the employee" })
+  }
+}
 
 module.exports = {
   getEmployeeData,

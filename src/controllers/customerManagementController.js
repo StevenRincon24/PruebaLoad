@@ -1,78 +1,23 @@
-const data = require("../data/users.json");
-const dataBook = require("../data/book.json");
-const fs = require("fs");
-const path = require("path");
-const filePath = path.join(__dirname, "../data/users.json");
-const filePath2 = path.join(__dirname, "../data/book.json");
+const User = require('../models/User')
+const Book = require('../models/Book')
 
-const getCustomerData = () => {
-  const customers = Object.keys(data.usuarios)
-    .filter((usuario) => data.usuarios[usuario].rol === "customer")
-    .map((username) => ({
-      username,
-      ...data.usuarios[username],
-    }));
-  return customers;
-};
-
-const registerCustomer = (
-  name,
-  lastName,
-  documentType,
-  documentNumber,
-  birthday,
-  cellphone,
-  address,
-  username,
-  password
-) => {
-  const rol = "customer";
-  const newUser = username;
-  const loans = [];
-  const newUserData = {
-    password,
-    rol,
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    cellphone,
-    address,
-    birthday,
-    loans,
-  };
-  return new Promise((resolve, reject) => {
-      data.usuarios[username] = newUserData;
-      const newContent = JSON.stringify(data, null, 2);
-      fs.writeFile(filePath, newContent, (err) => {
-          if (err) {
-              reject(err);
-          } else {
-              resolve(newUserData);
-          }
-      })
-  })
+const getCustomerData = async () => {
+  try {
+    const customers = await User.find({ 'customer.rol': 'customer' });
+    const formattedCustomers = customers.map((user) => {
+      const { email, customer } = user;
+      return {
+        username: email,
+        ...customer._doc,
+      };
+    });
+    return formattedCustomers;
+  } catch (error) {
+    return [];
+  }
 }
 
-const deleteCustomer = (username) => {
-  return new Promise((resolve, reject) => {
-    if (data.usuarios.hasOwnProperty(username)) {
-      delete data.usuarios[username];
-      const newContent = JSON.stringify(data, null, 2);
-      fs.writeFile(filePath, newContent, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    } else {
-      reject(new Error("El usuario no existe"));
-    }
-  });
-};
-
-const updateCustomer = (
+const registerCustomer = async (
   name,
   lastName,
   documentType,
@@ -80,114 +25,138 @@ const updateCustomer = (
   birthday,
   cellphone,
   address,
-  username,
+  email,
   password,
-  rol
+  loans
 ) => {
-  const loans = data.usuarios[username].loans
-  const newUserData = {
-    password,
-    rol,
-    name,
-    lastName,
-    documentType,
-    documentNumber,
-    cellphone,
-    address,
-    birthday,
-    loans
-  };
-  return new Promise((resolve, reject) => {
-    data.usuarios[username] = newUserData;
-    const newContent = JSON.stringify(data, null, 2);
-    fs.writeFile(filePath, newContent, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(newUserData);
+  try {
+    await User.create({
+      email: email,
+      customer: {
+        password: password,
+        rol: "customer",
+        name: name,
+        lastName: lastName,
+        documentType: documentType,
+        documentNumber: documentNumber,
+        cellphone: cellphone,
+        address: address,
+        birthday: birthday,
+        loans: loans || [],
       }
     });
-  });
+  } catch (error) {
+    throw error
+  }
+}
+
+const updateCustomer = async (
+  name,
+  lastName,
+  documentType,
+  documentNumber,
+  birthday,
+  cellphone,
+  address,
+  email,
+  password,
+  rol,
+  loans
+) => {
+  try {
+    const user = await User.findOne({ email: email, 'customer.rol': 'customer' });
+
+    if (user) {
+      user.customer.name = name;
+      user.customer.lastName = lastName;
+      user.customer.documentType = documentType;
+      user.customer.documentNumber = documentNumber;
+      user.customer.birthday = birthday;
+      user.customer.cellphone = cellphone;
+      user.customer.address = address;
+      user.password = password
+      user.customer.rol = rol
+      user.customer.loans = loans
+      await user.save();
+    } else {
+      throw new Error("User doesnt exist")
+    }
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteCustomer = async (id) => {
+  try {
+    const user = await User.findByIdAndRemove(id);
+    if (user) {
+      return 
+    } else {
+      throw new Error("User doesnt exist");
+    }
+  } catch (error) { 
+    throw error
+  }
 };
 
-const registerLoan = (username, ISBN) => {
-  return new Promise((resolve, reject) => {
-    const currentDate = new Date();
-    const endDate = new Date(currentDate);
-    endDate.setDate(currentDate.getDate() + 8);
-    const startDateString = `${currentDate.getFullYear()}-${(
-      currentDate.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, "0")}-${currentDate.getDate().toString().padStart(2, "0")}`;
-    const endDateString = `${endDate.getFullYear()}-${(endDate.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${endDate.getDate().toString().padStart(2, "0")}`;
+const registerLoan = async (username, ISBN) => {
+  try {
+    const user = await User.findOne({ email: username, 'customer.rol': 'customer' })
+    const book = await Book.findOne({ ISBN })
 
-    if (dataBook[ISBN].copies > 0) {
-      dataBook[ISBN].copies--;
+    if (user && book) {
+      const currentDate = new Date()
+      const endDate = new Date(currentDate)
+      endDate.setDate(currentDate.getDate() + 8)
 
-      data.usuarios[username].loans.push({
+      const newLoan = {
         id: username + currentDate,
         isbn: ISBN,
-        startDate: startDateString,
-        endDate: endDateString,
+        startDate: currentDate,
+        endDate: endDate,
         state: true,
-      });
-
-      const newContentUsers = JSON.stringify(data, null, 2);
-      const newContentBooks = JSON.stringify(dataBook, null, 2);
-
-      fs.writeFile(filePath, newContentUsers, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          fs.writeFile(filePath2, newContentBooks, (err) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve();
-            }
-          });
-        }
-      });
-    } else {
-      reject("No hay copias disponibles de este libro");
-    }
-  });
-};
-
-const updateStatus = (username, id) => {
-  return new Promise((resolve, reject) => {
-    const user = data.usuarios[username];
-    let loanToUpdate = null;
-
-    for (const loan of user.loans) {
-      if (loan.id === id) {
-        loanToUpdate = loan;
-        break;
       }
-    }
+      book.copies--
+      user.customer.loans.push(newLoan)
+      await user.save()
+      await book.save()
 
-    if (loanToUpdate) {
-      loanToUpdate.state = false;
-      const newContent = JSON.stringify(data, null, 2);
-
-      fs.writeFile(filePath, newContent, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(user);
-        }
-      });
+      return;
     } else {
-      reject(new Error("Loan not found"));
+      throw new Error("User or book doesnt exist");
     }
-  });
-};
+  } catch (error) {
+    throw error
+  }
+}
 
-const getCustomerDataUnique = (username) => {
-  return data.usuarios[username];
+const updateStatus = async (email, id) => {
+  try {
+    const user = await User.findOne({ email: email, 'customer.rol': 'customer' })
+    if (user) {
+      const loanToUpdate = user.customer.loans.find((loan) => loan.id === id)
+      if (loanToUpdate) {
+        loanToUpdate.state = false
+        await user.save()
+        return
+      } else {
+        throw new Error("Loan doesnt exist")
+      }
+    } else {
+      throw new Error("User doesnt exist")
+    }
+  } catch (error) {
+    throw error
+  }
+}
+
+const getCustomerDataUnique = async (email) => {
+  try {
+    const user = await User.findOne({ email: email, 'customer.rol': 'customer' });
+    return user
+  } catch (error) {
+    throw error
+  }
 };
 
 module.exports = {

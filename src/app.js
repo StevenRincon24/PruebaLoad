@@ -1,24 +1,11 @@
 const express = require("express");
-const path = require("path");
 const app = express();
-const methodOverride = require('method-override');
-
-const session = require('express-session')
-app.use(methodOverride('_method'));
-app.use(
-  session({
-    secret: 'mySecretKey',
-    resave: false,
-    saveUninitialized: false
-  })
-)
+const cors = require('cors')
 
 require('../src/drivers/connect-db')
 
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.use(express.json())
+app.use(cors())
 
 
 app.set("PORT", process.env.PORT || 4000);

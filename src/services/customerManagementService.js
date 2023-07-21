@@ -1,80 +1,73 @@
 const customerManagementController = require('../controllers/customerManagementController')
-const getCustomerData = () =>{
-    const customerData = customerManagementController.getCustomerData()
-    return customerData
-}
-
-const registerCustomer = (req, res) =>{
-    const { name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password} = req.body
-    
-    customerManagementController.registerCustomer(name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password)
-        .then((customer) => {
-            res.redirect("/dashBoard/customersManagement");
-        })
-        .catch((err) => {
-            console.error(err);
-            res.redirect("/dashboard/registerCustomer");
-        });
-}
-const deleteCustomer = (req, res) => {
-    const username = req.params.username
-    
-    customerManagementController
-    .deleteCustomer(username)
-    .then(() => {
-      res.status(200).json({ message: "Register deleted successfully" })
+const getCustomerData = async (req, res) => {
+  try {
+    await customerManagementController.getCustomerData()
+    .then((customers) =>{
+      res.status(200).json({ customers: customers })
     })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error deleting the register" })
-    })
-}
-
-const updateCustomer = (req, res) => {
-    const { name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol} = req.body;
-  
-    customerManagementController
-      .updateCustomer(name, lastName, documentType, documentNumber, birthday, cellphone, address, username, password, rol)
-      .then(() => {
-        res.redirect("/dashboard/customersManagement");
-      })
-      .catch((err) => {
-        console.error(err);
-        res.redirect("/dashboard/customersManagement");
-      });
-  };
-
-const registerLoan = (req, res) =>{
-  const { username, ISBN} = req.body
-    
-  customerManagementController.registerLoan(username, ISBN)
-      .then(() => {
-          res.redirect("/dashboard/loansManagement");
-      })
-      .catch((err) => {
-        
-          res.redirect("/dashboard/registerLoan");
-      });
-}
-
-const updateStatus = (req, res) => {
-  const username = req.params.username
-  const id = req.params.id
-
-  customerManagementController
-    .updateStatus(username, id)
-    .then(() => {
-      res.redirect("/dashBoard/loansManagement");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.redirect("/dashBoard/loansManagement");
-    });
+  } catch (error) {
+    res.status(500).json({ error: "Error getting customer data" })
+  }
 };
 
-const getCustomerDataUnique = (username) =>{
-  const customerData = customerManagementController.getCustomerDataUnique(username)
-  return customerData
+const registerCustomer = async (req, res) =>{
+    const { email, customer } = req.body
+    try {
+      await customerManagementController.registerCustomer(customer.name, customer.lastName, customer.documentType, customer.documentNumber, customer.birthday, customer.cellphone, customer.address, email, customer.password, customer.loans)
+      res.status(200).json({ message: "Customer registered successfully" })
+    } catch (error) {
+      res.status(500).json({ error: "Error registering the customer" })
+    } 
+}
+
+const updateCustomer = async (req, res) => {
+  const { email, customer } = req.body
+  try {
+    await customerManagementController.updateCustomer(customer.name, customer.lastName, customer.documentType, customer.documentNumber, customer.birthday, customer.cellphone, customer.address, email, customer.password, customer.loans)
+    res.status(200).json({ message: "Customer updated succesfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error updating customer" })
+  }
+}
+
+const deleteCustomer = async (req, res) => { 
+  try {
+    await customerManagementController.deleteCustomer(req.params.id)
+    res.status(200).json({ message: "Customer deleted successfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting the customer" })
+  }
+}
+
+const registerLoan = async (req, res) => {
+  const { username, ISBN } = req.body
+
+  try {
+    await customerManagementController.registerLoan(username, ISBN)
+    res.status(200).json({ message: "Loan register successfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error registering loan" })
+  }
+};
+
+const updateStatus = async (req, res) => {
+  try {
+    await customerManagementController.updateStatus(req.params.email, req.params.id)
+    res.status(200).json({ message: "Loan status updated successfully" })
+  } catch (error) {
+    res.status(500).json({ error: "Error updating loan status" })
+  }
+}
+
+const getCustomerDataUnique = async (req, res) =>{
+  try {
+    await customerManagementController.getCustomerDataUnique(req.params.email)
+    .then((user) =>{
+      res.status(200).json({ customerData: user })
+    })
+  } catch (error) {
+    res.status(500).json({ error: "Error, customer doesnt exist" })
+  }
 }
 
 module.exports = {

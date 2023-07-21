@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
-const {Schema} = mongoose
-
 // Esquema para los préstamos
-const loanSchema = new Schema({
+const loanSchema = new mongoose.Schema({
   id: String,
   isbn: String,
   startDate: Date,
@@ -12,7 +10,7 @@ const loanSchema = new Schema({
 });
 
 // Esquema para el rol "admin"
-const adminSchema = new Schema({
+const adminSchema = new mongoose.Schema({
   password: String,
   rol: {
     type: String,
@@ -28,7 +26,7 @@ const adminSchema = new Schema({
 });
 
 // Esquema para el rol "employee"
-const employeeSchema = new Schema({
+const employeeSchema = new mongoose.Schema({
   password: String,
   rol: {
     type: String,
@@ -44,7 +42,7 @@ const employeeSchema = new Schema({
 });
 
 // Esquema para el rol "customer"
-const customerSchema = new Schema({
+const customerSchema = new mongoose.Schema({
   password: String,
   rol: {
     type: String,
@@ -60,7 +58,7 @@ const customerSchema = new Schema({
   loans: [loanSchema]
 });
 
-const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
