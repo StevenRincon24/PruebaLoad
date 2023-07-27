@@ -55,9 +55,7 @@ const updateEmployee = async (
   birthday,
   cellphone,
   address,
-  email,
-  password,
-  rol
+  email
 ) => {
   try {
     const user = await User.findOne({
@@ -73,8 +71,8 @@ const updateEmployee = async (
       user.employee.birthday = birthday;
       user.employee.cellphone = cellphone;
       user.employee.address = address;
-      user.password = password;
-      user.employee.rol = rol;
+      user.password = password
+      user.employee.rol = rol
       await user.save();
     } else {
       throw new Error("User doesnt exist");

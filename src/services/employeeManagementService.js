@@ -33,18 +33,8 @@ const registerEmployee = async (req, res) => {
 const updateEmployee = async (req, res) => {
   const { email, employee } = req.body;
   try {
-    await EmployeeManagementController.updateEmployee(
-      employee.name,
-      employee.lastName,
-      employee.documentType,
-      employee.documentNumber,
-      employee.birthday,
-      employee.cellphone,
-      employee.address,
-      email,
-      employee.password
-    );
-    res.status(200).json({ message: "Employee updated succesfully" });
+    await EmployeeManagementController.updateEmployee(employee.name, employee.lastName, employee.documentType, employee.documentNumber, employee.birthday, employee.cellphone, employee.address, email)
+    res.status(200).json({ message: "Employee updated succesfully" })
   } catch (error) {
     res.status(500).json({ error: "Error updating employee" });
   }
