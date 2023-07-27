@@ -23,7 +23,7 @@ const registerCustomer = async (req, res) =>{
 const updateCustomer = async (req, res) => {
   const { email, customer } = req.body
   try {
-    await customerManagementController.updateCustomer(customer.name, customer.lastName, customer.documentType, customer.documentNumber, customer.birthday, customer.cellphone, customer.address, email, customer.password, customer.loans)
+    await customerManagementController.updateCustomer(customer.name, customer.lastName, customer.documentType, customer.documentNumber, customer.birthday, customer.cellphone, customer.address, email, customer.loans)
     res.status(200).json({ message: "Customer updated succesfully" })
   } catch (error) {
     res.status(500).json({ error: "Error updating customer" })

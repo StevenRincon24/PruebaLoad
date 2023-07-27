@@ -59,8 +59,6 @@ const updateCustomer = async (
   cellphone,
   address,
   email,
-  password,
-  rol,
   loans
 ) => {
   try {
@@ -74,8 +72,6 @@ const updateCustomer = async (
       user.customer.birthday = birthday;
       user.customer.cellphone = cellphone;
       user.customer.address = address;
-      user.password = password
-      user.customer.rol = rol
       user.customer.loans = loans
       await user.save();
     } else {
