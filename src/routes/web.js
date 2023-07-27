@@ -10,22 +10,58 @@ const router = express.Router();
 router.post("/login/validateUser", service.validateLogin);
 
 /** Routes for customer management and customer dashboard*/
-router.get("/dashBoard/customersManagement", serviceCustomerManagement.getCustomerData);
-router.post("/dashboard/registerCustomer/register", serviceCustomerManagement.registerCustomer);
-router.post("/dashboard/customersManagement/edit", serviceCustomerManagement.updateCustomer);
-router.delete("/dashboard/customersManagement/delete/:id", serviceCustomerManagement.deleteCustomer);
-router.post("/dashBoard/loansManagement/changeStatus/:email/:id", serviceCustomerManagement.updateStatus);
-router.get("/dashBoard/loansHistoryManagement/:email", serviceCustomerManagement.getCustomerDataUnique);
+router.get(
+  "/dashBoard/customersManagement",
+  serviceCustomerManagement.getCustomerData
+);
+router.post(
+  "/dashboard/registerCustomer/register",
+  serviceCustomerManagement.registerCustomer
+);
+router.post(
+  "/dashboard/customersManagement/edit",
+  serviceCustomerManagement.updateCustomer
+);
+router.delete(
+  "/dashboard/customersManagement/delete/:id",
+  serviceCustomerManagement.deleteCustomer
+);
+router.post(
+  "/dashBoard/loansManagement/changeStatus/:email/:id",
+  serviceCustomerManagement.updateStatus
+);
+router.get(
+  "/dashBoard/loansHistoryManagement/:email",
+  serviceCustomerManagement.getCustomerDataUnique
+);
 
 /**Routes for loans management */
-router.get("/dashBoard/loansManagement", serviceCustomerManagement.getCustomerData);
-router.post("/dashboard/registerLoan/register", serviceCustomerManagement.registerLoan);
+router.get(
+  "/dashBoard/loansManagement",
+  serviceCustomerManagement.getCustomerData
+);
+router.post(
+  "/dashboard/registerLoan/register",
+  serviceCustomerManagement.registerLoan
+);
 
 /** Routes for employees management */
-router.get("/dashBoard/EmployeeManagement", serviceEmployeeManagement.getEmployeeData);
-router.post("/dashboard/registerEmployee/register", serviceEmployeeManagement.registerEmployee);
-router.post("/dashboard/employeeManagement/edit", serviceEmployeeManagement.updateEmployee);
-router.delete("/dashboard/employeeManagement/delete/:id", serviceEmployeeManagement.deleteEmployee);
+router.get(
+  "/dashBoard/EmployeeManagement",
+  serviceEmployeeManagement.getEmployeeData
+);
+router.post(
+  "/dashboard/registerEmployee/register",
+  serviceEmployeeManagement.registerEmployee
+);
+router.post(
+  "/dashboard/employeeManagement/edit",
+  serviceEmployeeManagement.updateEmployee
+);
+router.delete(
+  "/dashboard/employeeManagement/delete/:id",
+  serviceEmployeeManagement.deleteEmployee
+);
 
 /**Routes for books management */
 router.get("/dashBoard/bookManagement", serviceBook.getBookData);
