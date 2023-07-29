@@ -40,10 +40,10 @@ const deleteBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   try {
-    const { id, name, author, genre, copies, date, fine } = req.body;
+    const { _id, name, author, genre, copies, date, fine } = req.body;
     
     await bookController.updateBook(
-      id,
+      _id,
       name,
       author,
       genre,

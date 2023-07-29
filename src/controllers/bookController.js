@@ -49,7 +49,10 @@ const updateBook = async (
       copies: copies,
       publication: publication,
       fine: fine,
-    });
+    }, {new: true});
+    if(!book){
+      throw error;
+    }
   } catch (error) {
     throw error;
   }
