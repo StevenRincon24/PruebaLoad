@@ -5,8 +5,9 @@ const getCustomerData = async () => {
   try {
     const customers = await User.find({ 'customer.rol': 'customer' });
     const formattedCustomers = customers.map((user) => {
-      const { email, customer } = user;
+      const { _id, email, customer } = user;
       return {
+        _id,
         username: email,
         ...customer._doc,
       };

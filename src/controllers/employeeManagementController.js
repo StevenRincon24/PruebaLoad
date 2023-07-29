@@ -3,9 +3,11 @@ const User = require("../models/User");
 const getEmployeeData = async () => {
   try {
     const employees = await User.find({ "employee.rol": "employee" });
+    console.log(employees)
     const formattedEmployees = employees.map((user) => {
-      const { email, employee } = user;
+      const { _id, email, employee } = user;
       return {
+        _id,
         username: email,
         ...employee._doc,
       };
