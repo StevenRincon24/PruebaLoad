@@ -71,8 +71,8 @@ const updateEmployee = async (
       user.employee.birthday = birthday;
       user.employee.cellphone = cellphone;
       user.employee.address = address;
-      user.password = password
-      user.employee.rol = rol
+      user.password = password;
+      user.employee.rol = rol;
       await user.save();
     } else {
       throw new Error("User doesnt exist");
@@ -83,17 +83,17 @@ const updateEmployee = async (
 };
 
 const deleteEmployee = async (id) => {
-  
+  console.log(id + " id usuario");
   try {
     const user = await User.findByIdAndRemove(id);
-    console.log(user + " usuario");
+
     if (user) {
       return;
     } else {
       throw new Error("User doesnt exist");
     }
   } catch (error) {
-    
+    console.log(error + " Error");
     throw error;
   }
 };
