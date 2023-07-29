@@ -18,8 +18,14 @@ router.patch("/dashBoard/loansManagement/changeStatus/:email/:id", serviceCustom
 router.get("/dashBoard/loansHistoryManagement/:email", serviceCustomerManagement.getCustomerDataUnique);
 
 /**Routes for loans management */
-router.get("/dashBoard/loansManagement", serviceCustomerManagement.getCustomerData);
-router.post("/dashboard/registerLoan/register", serviceCustomerManagement.registerLoan);
+router.get(
+  "/dashBoard/loansManagement",
+  serviceCustomerManagement.getCustomerData
+);
+router.post(
+  "/dashboard/registerLoan/register",
+  serviceCustomerManagement.registerLoan
+);
 
 /** Routes for employees management */
 router.get("/dashBoard/EmployeeManagement", serviceEmployeeManagement.getEmployeeData);

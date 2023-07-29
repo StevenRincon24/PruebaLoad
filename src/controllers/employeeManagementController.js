@@ -1,8 +1,8 @@
-const User = require('../models/User')
+const User = require("../models/User");
 
 const getEmployeeData = async () => {
   try {
-    const employees = await User.find({ 'employee.rol': 'employee' });
+    const employees = await User.find({ "employee.rol": "employee" });
     const formattedEmployees = employees.map((user) => {
       const { email, employee } = user;
       return {
@@ -14,7 +14,7 @@ const getEmployeeData = async () => {
   } catch (error) {
     return [];
   }
-}
+};
 
 const registerEmployee = async (
   name,
@@ -39,13 +39,13 @@ const registerEmployee = async (
         documentNumber: documentNumber,
         cellphone: cellphone,
         address: address,
-        birthday: birthday
-      }
+        birthday: birthday,
+      },
     });
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
 const updateEmployee = async (
   name,
@@ -58,7 +58,10 @@ const updateEmployee = async (
   email
 ) => {
   try {
-    const user = await User.findOne({ email: email, 'employee.rol': 'employee' });
+    const user = await User.findOne({
+      email: email,
+      "employee.rol": "employee",
+    });
 
     if (user) {
       user.employee.name = name;
@@ -68,25 +71,30 @@ const updateEmployee = async (
       user.employee.birthday = birthday;
       user.employee.cellphone = cellphone;
       user.employee.address = address;
+      user.password = password;
+      user.employee.rol = rol;
       await user.save();
-    } else {
-      throw new Error("User doesnt exist")
-    }
-  } catch (error) {
-    throw error
-  }
-}
-
-const deleteEmployee = async (id) => {
-  try {
-    const user = await User.findByIdAndRemove(id);
-    if (user) {
-      return 
     } else {
       throw new Error("User doesnt exist");
     }
-  } catch (error) { 
-    throw error
+  } catch (error) {
+    throw error;
+  }
+};
+
+const deleteEmployee = async (id) => {
+  console.log(id + " id usuario");
+  try {
+    const user = await User.findByIdAndRemove(id);
+
+    if (user) {
+      return;
+    } else {
+      throw new Error("User doesnt exist");
+    }
+  } catch (error) {
+    console.log(error + " Error");
+    throw error;
   }
 };
 
