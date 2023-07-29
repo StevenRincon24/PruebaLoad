@@ -12,10 +12,7 @@ const loanSchema = new mongoose.Schema({
 // Esquema para el rol "admin"
 const adminSchema = new mongoose.Schema({
   password: String,
-  rol: {
-    type: String,
-    enum: ['admin']
-  },
+  rol: String,
   name: String,
   lastName: String,
   documentType: String,
@@ -23,15 +20,12 @@ const adminSchema = new mongoose.Schema({
   cellphone: String,
   address: String,
   birthday: Date
-});
+}, { _id: false });
 
 // Esquema para el rol "employee"
 const employeeSchema = new mongoose.Schema({
   password: String,
-  rol: {
-    type: String,
-    enum: ['employee']
-  },
+  rol: String,
   name: String,
   lastName: String,
   documentType: String,
@@ -39,15 +33,12 @@ const employeeSchema = new mongoose.Schema({
   cellphone: String,
   address: String,
   birthday: Date
-});
+}, { _id: false });
 
 // Esquema para el rol "customer"
 const customerSchema = new mongoose.Schema({
   password: String,
-  rol: {
-    type: String,
-    enum: ['customer']
-  },
+  rol: String,
   name: String,
   lastName: String,
   documentType: String,
@@ -56,7 +47,7 @@ const customerSchema = new mongoose.Schema({
   address: String,
   birthday: Date,
   loans: [loanSchema]
-});
+}, { _id: false });
 
 const UserSchema = new mongoose.Schema({
   email: {
