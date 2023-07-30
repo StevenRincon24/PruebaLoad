@@ -13,7 +13,6 @@ const getBookData = async (req, res) => {
 const createBook = async (req, res) => {
   try {
     const { ISBN, name, author, genre, copies, publication, fine } = req.body;
-    console.log("HOLA " + ISBN);
     await bookController.addBook(
       ISBN,
       name,
