@@ -8,7 +8,6 @@ const getBookData = async () => {
   }
 };
 const addBook = async (ISBN, name, author, genre, copies, publication, fine) => {
-  console.log(name);
   try {
     await Book.create({
       ISBN:ISBN,

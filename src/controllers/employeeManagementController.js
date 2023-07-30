@@ -3,7 +3,6 @@ const User = require("../models/User");
 const getEmployeeData = async () => {
   try {
     const employees = await User.find({ "employee.rol": "employee" });
-    console.log(employees)
     const formattedEmployees = employees.map((user) => {
       const { _id, email, employee } = user;
       return {
@@ -91,7 +90,6 @@ const updateEmployee = async (
 };
 
 const deleteEmployee = async (id) => {
-  console.log(id + " id usuario");
   try {
     const user = await User.findByIdAndRemove(id);
 
@@ -101,7 +99,6 @@ const deleteEmployee = async (id) => {
       throw new Error("User doesnt exist");
     }
   } catch (error) {
-    console.log(error + " Error");
     throw error;
   }
 };
