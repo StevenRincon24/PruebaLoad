@@ -1,19 +1,9 @@
 # Biblioteca Municipal - Gestión de Libros, Empleados y Préstamos
 
-Este proyecto es un software desarrollado en Node.js con el framework Express y el motor de vistas EJS. Su objetivo principal es ayudar a la gestión de libros, empleados y préstamos en una biblioteca municipal. Proporciona un sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para administrar los datos asociados a los empleados, libros y servicios de la biblioteca.
+Este proyecto es una API RestFull desarrollada en Node.js con el framework Express. Su objetivo principal es ayudar a la gestión de libros, empleados y préstamos en una biblioteca municipal. Proporciona un sistema completo de CRUD (Crear, Leer, Actualizar y Eliminar) para administrar los datos asociados a los empleados, libros y servicios de la biblioteca.
 
 # Consideraciones de despliegue
 
-- Inicialmente utilizar el comando npm i para instalar las dependencias necesarias para el funcionamiento del sistema.
-- Algunas de las dependencias utilizadas son:
-  - "ejs": "^3.1.9",
-  - "express": "^4.18.2",
-  - "express-session": "^1.17.3",
-  - "method-override": "^3.0.0",
-  - "sweetalert2": "^11.7.12"
-- Para el correcto funcionamiento del sistema, hay que desplegarlo de la siguiente manera:
-  - npm run start:prod
-- El sistema se desplegará sobre el puerto **4000**.
 
 ## Contexto
 
@@ -57,26 +47,13 @@ Los empleados registrados podrán iniciar sesión en el sistema y realizar prés
 
 Los usuarios registrados podrán iniciar sesión en el sistema y acceder a sus préstamos activos y su historial de libros solicitados. Esto les permitirá verificar si tienen multas pendientes.
 
-## Requisitos de Instalación
+## Estructura proyecto
 
-Para instalar y ejecutar el proyecto localmente, se deben seguir los siguientes pasos:
-
-- Clonar este repositorio: git clone <URL del repositorio>
-- Ingresar al directorio del proyecto: cd biblioteca-municipal
-- Instalar las dependencias: npm install
-- Configurar las variables de entorno:
-- Crear un archivo .env en el directorio raíz del proyecto
-- Configurar las variables de entorno necesarias en el archivo .env (consultar el archivo .env.example para obtener la lista de variables requeridas)
-- Iniciar la aplicación: npm start
-- Acceder a la aplicación en el navegador web: http://localhost:4000
-- Estructura del Proyecto
 - El proyecto sigue una estructura de directorios recomendada para una aplicación Node.js con Express. A continuación se describe brevemente cada uno de los directorios principales:
 
 - **controllers**: Contiene los controladores de la aplicación que manejan la lógica de negocio y las interacciones con los modelos de datos.
 - **models**: Contiene los modelos de datos de la aplicación que se utilizan para interactuar con la base de datos.
 - **routes**: Contiene las definiciones de las rutas de la aplicación que manejan las solicitudes HTTP y llaman a los controladores correspondientes.
-- **views**: Contiene las vistas de la aplicación escritas en EJS (Embedded JavaScript) que se utilizan para generar la interfaz de usuario.
-- **public**: Contiene archivos estáticos como hojas de estilo CSS, scripts de JavaScript y otros recursos que se sirven directamente al navegador.
 - **services**: Contiene los servicios de la aplicación que encapsulan la lógica de negocio y se utilizan para realizar operaciones más complejas que no pertenecen estrictamente a los controladores.
 - **app.js**: El archivo principal de la aplicación que configura y arranca el servidor Express.
 - **package.json**: El archivo de configuración del proyecto que contiene las dependencias, scripts y otra información relevante.
@@ -86,7 +63,9 @@ Para instalar y ejecutar el proyecto localmente, se deben seguir los siguientes 
 El proyecto utiliza las siguientes dependencias principales:
 
 - Express: Framework web rápido y minimalista para Node.js.
-- EJS: Motor de plantillas para generar las vistas en HTML basado en JavaScript.
+- Cors: Middleware que proporciona compatibilidad con CORS (Cross-Origin Resource Sharing) en Express, permitiendo que tu servidor acepte solicitudes HTTP desde dominios diferentes al dominio del servidor. Es especialmente útil cuando tienes una API que es consumida desde un cliente en un dominio distinto.
+- Dotenv: Módulo que facilita la carga de variables de entorno desde archivos .env. Las variables de entorno son especialmente útiles para almacenar información sensible o configuraciones específicas para diferentes entornos (como credenciales de bases de datos, claves de API, etc.) y permiten que tu aplicación sea más segura y configurable.
+- Mongoose: Biblioteca de modelado de objetos MongoDB para Node.js que proporciona una forma sencilla y flexible de interactuar con bases de datos MongoDB. Mongoose permite definir esquemas y modelos para tus datos y proporciona una API para realizar consultas y operaciones en la base de datos.
 
 ## Consideraciones finales
 

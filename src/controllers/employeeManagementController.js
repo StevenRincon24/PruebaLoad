@@ -30,6 +30,14 @@ const registerEmployee = async (
   password
 ) => {
   try {
+    const currentDate = new Date();
+    const birthdayDate = new Date(birthday);
+    const ageDifferenceInMs = currentDate - birthdayDate;
+    const ageInYears = ageDifferenceInMs / (1000 * 60 * 60 * 24 * 365.25);
+    if (ageInYears < 18) {
+      throw new Error("The employee must be older than 18");
+    }
+
     await User.create({
       email: email,
       employee: {
