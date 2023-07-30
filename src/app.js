@@ -6,7 +6,9 @@ require('dotenv').config()
 require('../src/drivers/connect-db')
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+}));
 
 
 app.set("PORT", process.env.PORT || 4000);
