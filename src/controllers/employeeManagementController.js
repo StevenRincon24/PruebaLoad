@@ -1,5 +1,10 @@
 const User = require("../models/User");
 
+/**
+ * The function `getEmployeeData` retrieves employee data from the database and formats it into an
+ * array of objects.
+ * @returns The function `getEmployeeData` returns an array of formatted employee objects.
+ */
 const getEmployeeData = async () => {
   try {
     const employees = await User.find({ "employee.rol": "employee" });
@@ -17,6 +22,24 @@ const getEmployeeData = async () => {
   }
 };
 
+/**
+ * The function `registerEmployee` is used to register a new employee with their personal information
+ * and validate their age.
+ * @param name - The first name of the employee.
+ * @param lastName - The `lastName` parameter is a string that represents the last name of the employee
+ * being registered.
+ * @param documentType - The documentType parameter represents the type of document that the employee
+ * is providing for identification purposes. It could be a passport, driver's license, national ID
+ * card, etc.
+ * @param documentNumber - The documentNumber parameter is the identification number of the employee,
+ * such as a passport number or national ID number.
+ * @param birthday - The birthday parameter is the date of birth of the employee.
+ * @param cellphone - The cellphone parameter is the employee's cellphone number.
+ * @param address - The address parameter is a string that represents the employee's address.
+ * @param email - The email parameter is the email address of the employee being registered.
+ * @param password - The password parameter is the password that the employee will use to log in to
+ * their account.
+ */
 const registerEmployee = async (
   name,
   lastName,
@@ -56,6 +79,21 @@ const registerEmployee = async (
   }
 };
 
+/**
+ * The function `updateEmployee` updates the information of an employee in a database based on their
+ * email.
+ * @param name - The first name of the employee.
+ * @param lastName - The `lastName` parameter is the last name of the employee.
+ * @param documentType - The document type of the employee, such as "ID card", "passport", "driver's
+ * license", etc.
+ * @param documentNumber - The documentNumber parameter is the unique identification number of the
+ * employee's document, such as a national identification number or passport number.
+ * @param birthday - The birthday parameter is the date of birth of the employee.
+ * @param cellphone - The `cellphone` parameter is the new cellphone number of the employee.
+ * @param address - The address parameter is a string that represents the employee's address.
+ * @param email - The email parameter is the email address of the employee whose information needs to
+ * be updated.
+ */
 const updateEmployee = async (
   name,
   lastName,
@@ -89,6 +127,13 @@ const updateEmployee = async (
   }
 };
 
+/**
+ * The deleteEmployee function deletes an employee from the database by their ID.
+ * @param id - The `id` parameter is the unique identifier of the employee that you want to delete from
+ * the database.
+ * @returns If the user is found and successfully deleted, nothing is returned. If the user is not
+ * found, an error is thrown with the message "User doesnt exist".
+ */
 const deleteEmployee = async (id) => {
   try {
     const user = await User.findByIdAndRemove(id);

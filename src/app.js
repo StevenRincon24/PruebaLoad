@@ -1,3 +1,4 @@
+/* This code is setting up a basic Express server in JavaScript. */
 const express = require("express")
 const app = express();
 const cors = require('cors')

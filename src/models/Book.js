@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+/* The code is defining a Mongoose schema for a book. A schema is a blueprint for defining the
+structure of a document within a MongoDB collection. */
 const bookSchema = new mongoose.Schema({
   ISBN:{
     type: String,
