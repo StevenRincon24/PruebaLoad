@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/app",
+    "docs": "jsdoc -d docs --configure jsdocConf.json",
     "start:prod": "node src/app"
   },
   "keywords": [],
@@ -18,6 +19,8 @@
     "mongoose": "^7.4.0"
   },
   "devDependencies": {
+    "docdash": "^2.0.1",
+    "jsdoc": "^4.0.2",
     "nodemon": "^2.0.22"
   }
 }
