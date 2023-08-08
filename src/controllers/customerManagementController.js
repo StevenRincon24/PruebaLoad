@@ -59,6 +59,13 @@ const registerCustomer = async (
     if (existingUser) {
       throw new Error("A user with this document number already exists.");
     }
+    const existingUserEmail = await User.findOne({
+      email: email,
+    });
+
+    if (existingUserEmail) {
+      throw new Error("A user with this email already exists.");
+    }
     await User.create({
       email: email,
       customer: {

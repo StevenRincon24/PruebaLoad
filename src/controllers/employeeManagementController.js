@@ -63,6 +63,14 @@ const registerEmployee = async (
       "employee.documentNumber": documentNumber,
     });
 
+    const existingUserEmail = await User.findOne({
+      email: email,
+    });
+
+    if (existingUserEmail) {
+      throw new Error("A user with this email already exists.");
+    }
+
     if (existingUser) {
       throw new Error("A user with this document number already exists.");
     }
