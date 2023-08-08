@@ -59,6 +59,13 @@ const registerEmployee = async (
     if (ageInYears < 18) {
       throw new Error("The employee must be older than 18");
     }
+    const existingUser = await User.findOne({
+      "employee.documentNumber": documentNumber,
+    });
+
+    if (existingUser) {
+      throw new Error("A user with this document number already exists.");
+    }
 
     await User.create({
       email: email,

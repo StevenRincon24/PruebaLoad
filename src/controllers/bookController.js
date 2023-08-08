@@ -30,6 +30,15 @@ const getBookData = async () => {
  */
 const addBook = async (ISBN, name, author, genre, copies, publication, fine) => {
   try {
+
+    const existingBook = await Book.findOne({
+      ISBN: ISBN,
+    });
+
+    if (existingBook) {
+      throw new Error("A book with this ISBN already exists.");
+    }
+
     await Book.create({
       ISBN:ISBN,
       name: name,

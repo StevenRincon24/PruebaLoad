@@ -52,6 +52,13 @@ const registerCustomer = async (
   loans
 ) => {
   try {
+    const existingUser = await User.findOne({
+      "customer.documentNumber": documentNumber,
+    });
+
+    if (existingUser) {
+      throw new Error("A user with this document number already exists.");
+    }
     await User.create({
       email: email,
       customer: {
