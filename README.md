@@ -40,8 +40,6 @@ Los empleados registrados podrán iniciar sesión en el sistema y realizar prés
 - El usuario debe cumplir con la calificación de edad requerida para el libro solicitado (+4, +5, +18).
 - El usuario no debe tener más de 2 libros con multas.
 - Se registrarán la fecha de préstamo y la fecha de regreso (8 días después de la fecha de préstamo).
-- La multa se calculará en base a una tarifa diaria establecida para cada libro.
-- Además, los empleados también podrán recibir los libros prestados y cambiar el estado del préstamo a "terminado" cuando los usuarios devuelvan los libros.
 
 ## Usuarios
 
